@@ -1,0 +1,13 @@
+package org.example.wtg;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WtgApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(WtgApplication.class, args);
+    }
+
+}
