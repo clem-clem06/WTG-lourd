@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb99af59-b930-45d8-9820-e8cb5f629a06" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/WtgApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Baie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Intervention.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Offre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Unite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/BaieRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/CardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/CartItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/CartRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/InterventionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/OffreRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/OrderItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/PaymentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/UniteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/security/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/security/SecurityConfig.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/wamp64/www/WTG/Java" value="3B1Mpe8NG9lV29eFnMMrqixiKAe" />
+    </persistenceIdMap>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WTG" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;clem-clem06&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/clem-clem06/WTG-lourd.git&quot;,
+    &quot;accountId&quot;: &quot;9254e363-ef4e-48e5-b873-2cce046bbe7b&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3B1Mpe8NG9lV29eFnMMrqixiKAe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Gradle.Java [:org.example.wtg.WtgApplication.main()].executor": "Run",
+    "Gradle.Java.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/wamp64/www/WTG/Java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.github.blarc.ai.commits.intellij.plugin.settings.AppSettingsConfigurable"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\WTG\Java\src\main\java\org\example\wtg" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle " />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.WtgApplication">
+    <configuration name="WtgApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.wtg.WtgApplication" />
+      <module name="WTG.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.wtg.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Java" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Java" />
+        <item itemvalue="Application.WtgApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb99af59-b930-45d8-9820-e8cb5f629a06" name="Changes" comment="" />
+      <created>1773652382112</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773652382112</updated>
+    </task>
+    <task id="LOCAL-00001" summary="```&#10;docs: créer le fichier README initial du projet&#10;```">
+      <option name="closed" value="true" />
+      <created>1773653308794</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773653308794</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat(entites): ajouter les entités JPA du domaine&#10;&#10;Ajout de toutes les entités de base pour le modèle de données:&#10;Intervention, Order, Baie, Offre, Cart, CartItem, OrderItem, Payment,&#10;Card, User, Unite.&#10;Mise à jour du fichier .gitignore pour ignorer&#10;'application-local.properties'.">
+      <option name="closed" value="true" />
+      <created>1774471706414</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774471706414</updated>
+    </task>
+    <task id="LOCAL-00003" summary="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `CustomUserDetailsService` pour charger les&#10;  utilisateurs via `UserRepository` et leur email.&#10;- Ajout de `spring.profiles.active=local` dans `application.properties`.&#10;```">
+      <option name="closed" value="true" />
+      <created>1774476037130</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774476037130</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="```&#10;docs: créer le fichier README initial du projet&#10;```" />
+    <MESSAGE value="```&#10;feat(entités, bdd): Ajouter les entités" />
+    <MESSAGE value="```&#10;feat(entités, bdd): Ajouter les entités JPA initiales et configurer BDD&#10;&#10;Ce commit introduit l'ensemble des classes d'entités JPA&#10;pour le modèle de données de l'application, incluant :&#10;&#10;- Baie, Card, Cart, CartItem," />
+    <MESSAGE value="```&#10;feat(entités, bdd): Ajouter les entités JPA initiales et configurer BDD&#10;&#10;Ce commit introduit l'ensemble des classes d'entités JPA&#10;pour le modèle de données de l'application, incluant :&#10;&#10;- Baie, Card, Cart, CartItem, Intervention, Offre, Order,&#10;  OrderItem, Payment, Unite, User&#10;&#10;Il configure également les paramètres de connexion à la base&#10;de données MySQL dans `application.properties`.&#10;```" />
+    <MESSAGE value="feat(entites): ajouter les entités JPA du domaine&#10;&#10;Ajout de toutes les entités de base pour le modèle de données:&#10;Intervention, Order, Baie, Offre, Cart, CartItem" />
+    <MESSAGE value="feat(entites): ajouter les entités JPA du domaine&#10;&#10;Ajout de toutes les entités de base pour le modèle de données:&#10;Intervention, Order, Baie, Offre, Cart, CartItem, OrderItem, Payment,&#10;Card, User, Unite.&#10;Mise à jour du fichier .gitignore pour ignorer&#10;'application-local.properties'." />
+    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d" />
+    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Cré" />
+    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot" />
+    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `" />
+    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `CustomUserDetailsService` pour charger les&#10;  utilisateurs via `UserRepository` et leur email.&#10;- Ajout de `spring.profiles.active=local` dans `application.properties`.&#10;```" />
+    <option name="LAST_COMMIT_MESSAGE" value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `CustomUserDetailsService` pour charger les&#10;  utilisateurs via `UserRepository` et leur email.&#10;- Ajout de `spring.profiles.active=local` dans `application.properties`.&#10;```" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
