@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--
+  xmlns:th="..." → active la syntaxe Thymeleaf (th:if, th:text, etc.)
+  C'est comme l'équivalent du moteur Twig en Symfony
+-->
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkTogether — Connexion</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
+        .logo-zone {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-zone h1 {
+            color: #f8fafc;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-zone h1 span {
+            color: #3b82f6;
+        }
+
+        .logo-zone p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 36px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid #334155;
+        }
+
+        .card h2 {
+            color: #f1f5f9;
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .alert-danger {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #fca5a5;
+        }
+
+        .alert-success {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #86efac;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 14px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        input::placeholder { color: #475569; }
+
+        .btn-login {
+            width: 100%;
+            padding: 13px;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 8px;
+        }
+
+        .btn-login:hover { background: #2563eb; }
+        .btn-login:active { transform: scale(0.98); }
+
+        .footer-note {
+            text-align: center;
+            color: #475569;
+            font-size: 0.75rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-wrapper">
+
+    <div class="logo-zone">
+        <h1>Work<span>Together</span></h1>
+        <p>Application de gestion interne</p>
+    </div>
+
+    <div class="card">
+        <h2>Connexion</h2>
+
+        <!--
+          th:if="${erreurMessage}" → affiche ce bloc SEULEMENT si la variable "erreurMessage"
+          a été passée depuis le Controller (via model.addAttribute)
+        -->
+        <div class="alert alert-danger" th:if="${erreurMessage}">
+            <!-- th:text → injecte le contenu de la variable dans le HTML -->
+            <span th:text="${erreurMessage}"></span>
+        </div>
+
+        <div class="alert alert-success" th:if="${successMessage}">
+            <span th:text="${successMessage}"></span>
+        </div>
+
+        <!--
+          action="/login"  → Spring Security intercepte ce POST automatiquement
+          method="post"    → POST = envoi de données sensibles (jamais GET pour un login)
+        -->
+        <form action="/login" method="post">
+
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <!--
+                  name="email" → doit correspondre au usernameParameter("email")
+                  défini dans SecurityConfig.java
+                -->
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="admin@wtg.fr"
+                       required
+                       autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <!-- name="password" → correspond au passwordParameter("password") dans SecurityConfig -->
+                <input type="password"
+                       id="password"
+                       name="password"
+                       placeholder="••••••••"
+                       required>
+            </div>
+
+            <button type="submit" class="btn-login">Se connecter</button>
+
+        </form>
+    </div>
+
+    <p class="footer-note">Accès réservé au personnel autorisé</p>
+
+</div>
+
+</body>
+</html>

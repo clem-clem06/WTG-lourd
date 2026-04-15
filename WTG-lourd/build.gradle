@@ -23,6 +23,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    // Thymeleaf = moteur de templates HTML (comme Twig en Symfony)
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // Permet d'utiliser les rôles Spring Security directement dans le HTML
+    // ex: afficher un menu seulement si l'user est ADMIN
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
     // Pour ta base de données
     runtimeOnly 'com.mysql:mysql-connector-j'
 }

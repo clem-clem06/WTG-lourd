@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--
+  xmlns:sec → active les attributs sec:authorize pour masquer/afficher selon les rôles
+  ex: sec:authorize="hasRole('ADMIN')"
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkTogether — Dashboard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        /* ── Barre de navigation ── */
+        nav {
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+        .nav-logo span { color: #3b82f6; }
+
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .badge-role {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Couleur différente selon le rôle */
+        .badge-admin    { background: rgba(59,130,246,0.2); color: #93c5fd; border: 1px solid rgba(59,130,246,0.4); }
+        .badge-comptable{ background: rgba(168,85,247,0.2); color: #d8b4fe; border: 1px solid rgba(168,85,247,0.4); }
+
+        .nav-email { color: #94a3b8; font-size: 0.875rem; }
+
+        .btn-logout {
+            background: transparent;
+            border: 1px solid #475569;
+            color: #94a3b8;
+            padding: 7px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-logout:hover { border-color: #ef4444; color: #ef4444; }
+
+        /* ── Contenu principal ── */
+        main {
+            max-width: 1100px;
+            margin: 48px auto;
+            padding: 0 24px;
+        }
+
+        .welcome {
+            margin-bottom: 40px;
+        }
+
+        .welcome h1 {
+            font-size: 1.75rem;
+            color: #f1f5f9;
+            margin-bottom: 6px;
+        }
+
+        .welcome p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* ── Section ── */
+        .section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* ── Grille de cartes ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #3b82f6;
+            box-shadow: 0 8px 24px rgba(59,130,246,0.15);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+
+        .card h3 {
+            color: #f1f5f9;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────────── -->
+<nav>
+    <div class="nav-logo">Work<span>Together</span> <small style="color:#475569; font-size:0.7rem; font-weight:400;">Gestion interne</small></div>
+
+    <div class="nav-user">
+        <!-- Affiche le badge selon le rôle (sec:authorize vérifie le rôle Spring Security) -->
+        <span class="badge-role badge-admin"     sec:authorize="hasRole('ADMIN')">Administrateur</span>
+        <span class="badge-role badge-comptable" sec:authorize="hasRole('COMPTABLE')">Comptable</span>
+
+        <!-- th:text injecte la variable Java "email" passée depuis le Controller -->
+        <span class="nav-email" th:text="${email}">user@wtg.fr</span>
+
+        <!-- Lien de déconnexion → Spring Security intercepte /logout automatiquement -->
+        <a href="/logout" class="btn-logout">Déconnexion</a>
+    </div>
+</nav>
+
+<!-- ── Contenu ────────────────────────────────────────────────── -->
+<main>
+
+    <div class="welcome">
+        <!-- th:text="${email}" → remplace le contenu par l'email de l'utilisateur connecté -->
+        <h1>Bonjour, <span style="color:#3b82f6;" th:text="${email}">utilisateur</span> 👋</h1>
+        <p>Que souhaitez-vous gérer aujourd'hui ?</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BLOC ADMIN  (visible UNIQUEMENT par les administrateurs)
+         sec:authorize="hasRole('ADMIN')" → masque tout le bloc si pas ADMIN
+    ═══════════════════════════════════════════════════════════ -->
+    <div sec:authorize="hasRole('ADMIN')">
+        <p class="section-title">Administration</p>
+        <div class="cards-grid">
+
+            <a href="/admin/users" class="card">
+                <div class="card-icon">👥</div>
+                <h3>Utilisateurs</h3>
+                <p>Gérer les comptes du personnel (Admins, Comptables).</p>
+            </a>
+
+            <a href="/admin/baies" class="card">
+                <div class="card-icon">🗄️</div>
+                <h3>Baies</h3>
+                <p>Gérer le stock des 30 baies et leurs unités (U01–U42).</p>
+            </a>
+
+            <a href="/admin/offres" class="card">
+                <div class="card-icon">📦</div>
+                <h3>Offres commerciales</h3>
+                <p>Gérer les offres Base, Start-up, PME, Entreprise.</p>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BLOC COMPTABLE (visible par Comptable ET Admin)
+         hasAnyRole → l'un OU l'autre suffit
+    ═══════════════════════════════════════════════════════════ -->
+    <div sec:authorize="hasAnyRole('COMPTABLE', 'ADMIN')">
+        <p class="section-title">Comptabilité</p>
+        <div class="cards-grid">
+
+            <a href="/comptable/clients" class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Clients</h3>
+                <p>Consulter la liste des entreprises clientes.</p>
+            </a>
+
+            <a href="/comptable/reservations" class="card">
+                <div class="card-icon">📋</div>
+                <h3>Réservations</h3>
+                <p>Consulter toutes les commandes et leur statut.</p>
+            </a>
+
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

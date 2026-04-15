@@ -1,5 +1,6 @@
 package org.example.wtg.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,10 +18,12 @@ public class Unite {
     private String type;
     private String couleur;
 
+    @JsonIgnore // Évite la boucle : Unite → Baie → Liste<Unite> → Baie → ...
     @ManyToOne
     @JoinColumn(nullable = false)
     private Baie baie;
 
+    @JsonIgnore // Évite la boucle : Unite → User → List<Unite> → User → ...
     @ManyToOne
     @JoinColumn(name = "locataire_id")
     private User locataire;
@@ -28,6 +31,7 @@ public class Unite {
     @Column(name = "date_fin_location")
     private LocalDateTime dateFinLocation;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "unites")
     private List<Intervention> interventions = new ArrayList<>();
 

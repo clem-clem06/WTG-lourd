@@ -1,5 +1,6 @@
 package org.example.wtg.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,21 +18,25 @@ public class User {
     @Column(columnDefinition = "json")
     private String roles;
 
+    @JsonIgnore // Ne jamais renvoyer le mot de passe hashé dans les réponses API
     @Column(nullable = false)
     private String password;
 
     @Column(name = "api_token")
     private String apiToken;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Cart> carts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Card> cards = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "locataire")
     private List<Unite> unites = new ArrayList<>();
 

@@ -1,5 +1,6 @@
 package org.example.wtg.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class Order {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @JsonIgnore // Évite la boucle Order → User → List<Order> → User → ...
     @ManyToOne
     @JoinColumn(nullable = false)
     private User user;
