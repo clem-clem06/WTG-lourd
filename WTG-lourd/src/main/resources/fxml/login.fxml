@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Les "imports" en haut sont OBLIGATOIRES en FXML.
+  Chaque balise utilisée (VBox, Label, TextField…) doit être importée.
+-->
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  fx:controller = chemin complet de la classe Java qui gère cette fenêtre
+  stylesheets   = fichiers CSS à appliquer (chemin relatif au dossier du .fxml)
+-->
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.wtg.views.LoginController"
+           stylesheets="@style.css"
+           styleClass="root-pane">
+
+    <!-- La carte centrée (max-width 360, hauteur auto) -->
+    <VBox alignment="CENTER"
+          maxWidth="360"
+          maxHeight="-Infinity"
+          spacing="18"
+          styleClass="login-card">
+
+        <!-- Titre + sous-titre -->
+        <VBox alignment="CENTER" spacing="4">
+            <Label text="WorkTogether" styleClass="title"/>
+            <Label text="Application de gestion interne" styleClass="subtitle"/>
+        </VBox>
+
+        <!--
+          Label d'erreur CACHÉ par défaut.
+          visible=false  → invisible
+          managed=false  → ne prend pas de place dans le layout
+          Le controller le rend visible en cas d'erreur.
+        -->
+        <Label fx:id="errorLabel"
+               styleClass="error-label"
+               visible="false"
+               managed="false"
+               wrapText="true"
+               maxWidth="Infinity"/>
+
+        <!-- Champ email -->
+        <VBox spacing="6">
+            <Label text="Adresse email" styleClass="field-label"/>
+            <!-- fx:id = nom du champ @FXML dans LoginController.java -->
+            <TextField fx:id="emailField"
+                       promptText="admin@wtg.fr"
+                       styleClass="text-field"/>
+        </VBox>
+
+        <!-- Champ mot de passe -->
+        <VBox spacing="6">
+            <Label text="Mot de passe" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField"
+                           promptText="••••••••"
+                           styleClass="text-field"/>
+        </VBox>
+
+        <!--
+          onAction="#onLogin"  → appelle la méthode onLogin() du controller
+          maxWidth=Infinity    → le bouton prend toute la largeur
+          defaultButton=true   → le bouton est activé par la touche Entrée
+        -->
+        <Button text="Se connecter"
+                onAction="#onLogin"
+                defaultButton="true"
+                maxWidth="Infinity"
+                styleClass="btn-login"/>
+
+    </VBox>
+
+</StackPane>

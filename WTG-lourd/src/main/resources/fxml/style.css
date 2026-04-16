@@ -1,0 +1,207 @@
+/* ═══════════════════════════════════════════════════════════
+   CSS pour JavaFX
+   Attention : JavaFX utilise des préfixes -fx-* au lieu de
+   background-color, color, font-size, etc.
+═══════════════════════════════════════════════════════════ */
+
+/* ── Fond global de toutes les fenêtres ── */
+.root-pane {
+    -fx-background-color: #0f172a;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE DE LOGIN
+═══════════════════════════════════════════════════════════ */
+
+.login-card {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 16;
+    -fx-border-color: #334155;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 36;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 24, 0, 0, 8);
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f8fafc;
+}
+
+.subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #94a3b8;
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #cbd5e1;
+}
+
+/* Champs de saisie (email + mot de passe) */
+.text-field {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #f1f5f9;
+    -fx-prompt-text-fill: #475569;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.3), 8, 0, 0, 0);
+}
+
+/* Bouton "Se connecter" */
+.btn-login {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-login:hover  { -fx-background-color: #2563eb; }
+.btn-login:pressed{ -fx-background-color: #1d4ed8; }
+
+/* Message d'erreur */
+.error-label {
+    -fx-background-color: rgba(239,68,68,0.15);
+    -fx-border-color: rgba(239,68,68,0.4);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #fca5a5;
+    -fx-font-size: 12px;
+    -fx-padding: 10 14;
+    -fx-alignment: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DASHBOARD
+═══════════════════════════════════════════════════════════ */
+
+/* Barre de navigation en haut */
+.navbar {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent transparent #334155 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.nav-logo {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f8fafc;
+}
+
+.nav-subtitle {
+    -fx-font-size: 11px;
+    -fx-text-fill: #475569;
+}
+
+.nav-email {
+    -fx-font-size: 13px;
+    -fx-text-fill: #94a3b8;
+}
+
+/* Badge de rôle (le controller ajoute badge-admin ou badge-comptable) */
+.badge-role {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 12;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+}
+
+.badge-admin {
+    -fx-background-color: rgba(59,130,246,0.2);
+    -fx-text-fill: #93c5fd;
+    -fx-border-color: rgba(59,130,246,0.4);
+}
+
+.badge-comptable {
+    -fx-background-color: rgba(168,85,247,0.2);
+    -fx-text-fill: #d8b4fe;
+    -fx-border-color: rgba(168,85,247,0.4);
+}
+
+/* Bouton Déconnexion */
+.btn-logout {
+    -fx-background-color: transparent;
+    -fx-border-color: #475569;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+    -fx-padding: 7 16;
+    -fx-cursor: hand;
+}
+
+.btn-logout:hover {
+    -fx-border-color: #ef4444;
+    -fx-text-fill: #ef4444;
+}
+
+/* ── Contenu scrollable ── */
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: #0f172a;
+}
+
+.scroll-pane > .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f1f5f9;
+}
+
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b;
+}
+
+.section-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+}
+
+/* ── Cartes cliquables ── */
+.card {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.card:hover {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.25), 12, 0, 0, 4);
+}
+
+.card-icon {
+    -fx-font-size: 28px;
+}
+
+.card-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f1f5f9;
+}
+
+.card-desc {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748b;
+}

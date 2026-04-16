@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.7'
+    // Plugin JavaFX : télécharge et configure les modules JavaFX automatiquement
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group = 'org.example'
@@ -13,23 +15,29 @@ java {
     }
 }
 
+// Déclare quels modules JavaFX on utilise
+// controls = boutons, labels, tableaux...
+// fxml     = les fichiers .fxml qui définissent les interfaces graphiques
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Les briques de base pour ton projet
+    // JPA : pour parler à la BDD (on garde)
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Security : pour BCrypt et l'authentification (on garde)
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // Thymeleaf = moteur de templates HTML (comme Twig en Symfony)
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // SUPPRIMÉ : spring-boot-starter-web      (plus de serveur HTTP)
+    // SUPPRIMÉ : spring-boot-starter-thymeleaf (plus de pages HTML)
+    // SUPPRIMÉ : thymeleaf-extras-springsecurity6
 
-    // Permet d'utiliser les rôles Spring Security directement dans le HTML
-    // ex: afficher un menu seulement si l'user est ADMIN
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-
-    // Pour ta base de données
+    // BDD MySQL
     runtimeOnly 'com.mysql:mysql-connector-j'
 }
