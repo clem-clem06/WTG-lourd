@@ -41,3 +41,19 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Secrets / configs locales ###
+# Surcharges locales — NE JAMAIS committer (peut contenir des credentials)
+application-local.properties
+.env
+.env.*
+
+### Logs ###
+logs/
+*.log
+
+### IntelliJ — fichiers utilisateur (pas partagés entre devs) ###
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/tasks.xml
+.idea/shelf/

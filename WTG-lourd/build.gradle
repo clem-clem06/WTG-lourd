@@ -34,10 +34,23 @@ dependencies {
     // Security : pour BCrypt et l'authentification (on garde)
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
+    // Jackson : lecture/écriture JSON (ObjectMapper, @JsonIgnore...)
+    // Nécessaire pour parser le champ "roles" (stocké en JSON dans la BDD Symfony)
+    // Avant, il arrivait via spring-boot-starter-web ; en JavaFX il faut l'ajouter explicitement.
+    implementation 'org.springframework.boot:spring-boot-starter-json'
+
     // SUPPRIMÉ : spring-boot-starter-web      (plus de serveur HTTP)
     // SUPPRIMÉ : spring-boot-starter-thymeleaf (plus de pages HTML)
     // SUPPRIMÉ : thymeleaf-extras-springsecurity6
 
     // BDD MySQL
     runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // Tests unitaires : JUnit 5 + Mockito + AssertJ (fournis par le starter)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// Active JUnit Platform (JUnit 5) pour `./gradlew test`
+test {
+    useJUnitPlatform()
 }

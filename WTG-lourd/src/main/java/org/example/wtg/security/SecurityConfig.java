@@ -29,6 +29,9 @@ public class SecurityConfig {
     // On l'utilisera dans le LoginController JavaFX
     @Bean
     public AuthenticationManager authenticationManager() {
+        // NB : le constructeur DaoAuthenticationProvider(UserDetailsService) n'existe
+        // qu'à partir de Spring Security 6.3. Spring Boot 3.2.4 embarque la 6.2.x,
+        // donc on garde le style "setters" qui fonctionne dans toutes les versions.
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder());

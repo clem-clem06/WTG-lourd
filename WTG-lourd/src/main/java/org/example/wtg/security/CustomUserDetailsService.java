@@ -1,9 +1,12 @@
 package org.example.wtg.security;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.wtg.entities.User;
 import org.example.wtg.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +18,8 @@ import java.util.List;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
+
+    private static final Logger log = LoggerFactory.getLogger(CustomUserDetailsService.class);
 
     private final UserRepository userRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -31,10 +36,14 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé : " + email));
 
         // 2. Parse le JSON des rôles  ex: ["ROLE_ADMIN"] → List["ROLE_ADMIN"]
+        //    Si le JSON est corrompu, on log un WARN (pour debug) et on retombe sur ROLE_USER,
+        //    qui sera de toute façon rejeté par DisabledException plus bas.
         List<String> rolesList;
         try {
             rolesList = objectMapper.readValue(user.getRoles(), new TypeReference<List<String>>() {});
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
+            log.warn("Rôles JSON invalides pour user {} (roles={}), fallback ROLE_USER",
+                    email, user.getRoles(), e);
             rolesList = List.of("ROLE_USER");
         }
 
