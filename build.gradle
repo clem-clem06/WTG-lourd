@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+    // Plugin JavaFX : télécharge et configure les modules JavaFX automatiquement
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+// Déclare quels modules JavaFX on utilise
+// controls = boutons, labels, tableaux...
+// fxml     = les fichiers .fxml qui définissent les interfaces graphiques
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JPA : pour parler à la BDD (on garde)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Security : pour BCrypt et l'authentification (on garde)
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Jackson : lecture/écriture JSON (ObjectMapper, @JsonIgnore...)
+    // Nécessaire pour parser le champ "roles" (stocké en JSON dans la BDD Symfony)
+    // Avant, il arrivait via spring-boot-starter-web ; en JavaFX il faut l'ajouter explicitement.
+    implementation 'org.springframework.boot:spring-boot-starter-json'
+
+    // SUPPRIMÉ : spring-boot-starter-web      (plus de serveur HTTP)
+    // SUPPRIMÉ : spring-boot-starter-thymeleaf (plus de pages HTML)
+    // SUPPRIMÉ : thymeleaf-extras-springsecurity6
+
+    // BDD MySQL
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // Tests unitaires : JUnit 5 + Mockito + AssertJ (fournis par le starter)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// Active JUnit Platform (JUnit 5) pour `./gradlew test`
+test {
+    useJUnitPlatform()
+}

@@ -4,33 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb99af59-b930-45d8-9820-e8cb5f629a06" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/WtgApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Baie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Card.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Cart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/CartItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Intervention.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Offre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/OrderItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Payment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/Unite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/BaieRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/CardRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/CartItemRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/CartRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/InterventionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/OffreRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/OrderItemRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/OrderRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/PaymentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/UniteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/security/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/security/SecurityConfig.java" beforeDir="false" />
+    <list default="true" id="90a786f2-63b5-47a9-a433-dc18af0c4649" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.idea/AICommit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/JavaFxApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/SceneManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/WtgApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Baie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Intervention.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Offre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/Unite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/entities/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/BaieRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/CardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/CartItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/CartRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/InterventionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/OffreRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/OrderItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/PaymentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/UniteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/security/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/views/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/java/org/example/wtg/views/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/resources/application-local.properties.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/resources/fxml/dashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/resources/fxml/login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/main/resources/fxml/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WTG-lourd/src/test/java/org/example/wtg/security/CustomUserDetailsServiceTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +62,8 @@
   </component>
   <component name="CopilotPersistence">
     <persistenceIdMap>
-      <entry key="_C:/wamp64/www/WTG/Java" value="3B1Mpe8NG9lV29eFnMMrqixiKAe" />
+      <entry key="_C:/wamp64/www/WTG/Java" value="3CREOZ8eYBainGA5gfmqX6KhYND" />
+      <entry key="_C:/wamp64/www/WTG/Java/WTG-lourd" value="3CO4E1K6lJ7tyqDn6zzhBqCyqrr" />
     </persistenceIdMap>
   </component>
   <component name="ExternalProjectsData">
@@ -55,7 +79,7 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="WTG" type="f1a62948:ProjectNode" />
+                <item name="WTG-lourd" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -64,15 +88,12 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -87,26 +108,23 @@
     &quot;accountId&quot;: &quot;9254e363-ef4e-48e5-b873-2cce046bbe7b&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\cleme\.gradle\wrapper\dists\gradle-9.0.0-bin\d6wjpkvcgsg3oed0qlfss3wgl\gradle-9.0.0" javaHome="C:\Users\cleme\.jdks\ms-21.0.10" gradleVersion="9.0.0" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/build.gradle" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="3B1Mpe8NG9lV29eFnMMrqixiKAe" />
+  <component name="ProjectId" id="3CO4E1K6lJ7tyqDn6zzhBqCyqrr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
     "Gradle.Java [:org.example.wtg.WtgApplication.main()].executor": "Run",
-    "Gradle.Java.executor": "Run",
+    "Gradle.WTG-lourd [:org.example.wtg.WtgApplication.main()].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -114,71 +132,10 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/wamp64/www/WTG/Java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.github.blarc.ai.commits.intellij.plugin.settings.AppSettingsConfigurable"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
+    "onboarding.tips.debug.path": "C:/wamp64/www/WTG/Java/WTG-lourd/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\WTG\Java\src\main\java\org\example\wtg" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="gradle " />
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.WtgApplication">
-    <configuration name="WtgApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.wtg.WtgApplication" />
-      <module name="WTG.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.wtg.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Java" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.Java" />
-        <item itemvalue="Application.WtgApplication" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -188,53 +145,85 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eb99af59-b930-45d8-9820-e8cb5f629a06" name="Changes" comment="" />
-      <created>1773652382112</created>
+      <changelist id="90a786f2-63b5-47a9-a433-dc18af0c4649" name="Changes" comment="" />
+      <created>1776243170197</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1773652382112</updated>
+      <updated>1776243170197</updated>
     </task>
-    <task id="LOCAL-00001" summary="```&#10;docs: créer le fichier README initial du projet&#10;```">
+    <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
-      <created>1773653308794</created>
+      <created>1776244478094</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1773653308794</updated>
+      <updated>1776244478094</updated>
     </task>
-    <task id="LOCAL-00002" summary="feat(entites): ajouter les entités JPA du domaine&#10;&#10;Ajout de toutes les entités de base pour le modèle de données:&#10;Intervention, Order, Baie, Offre, Cart, CartItem, OrderItem, Payment,&#10;Card, User, Unite.&#10;Mise à jour du fichier .gitignore pour ignorer&#10;'application-local.properties'.">
+    <task id="LOCAL-00002" summary="```&#10;build: Supprimer le projet Java Spring Boot (main)&#10;&#10;Ce commit retire entièrement le projet Java Spring Boot du&#10;répertoire. Il inclut la suppression des fichiers de build Gradle,&#10;des entités, des dépôts, de la configuration de sécurité, des&#10;ressources et des fichiers de configuration Git associés.&#10;```">
       <option name="closed" value="true" />
-      <created>1774471706414</created>
+      <created>1776244676343</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1774471706414</updated>
+      <updated>1776244676343</updated>
     </task>
-    <task id="LOCAL-00003" summary="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `CustomUserDetailsService` pour charger les&#10;  utilisateurs via `UserRepository` et leur email.&#10;- Ajout de `spring.profiles.active=local` dans `application.properties`.&#10;```">
+    <task id="LOCAL-00003" summary="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/comptable/**`.&#10;- Ajout des dépendances Thymeleaf (`spring-boot-starter-thymeleaf` et&#10;  `thymeleaf-extras-springsecurity6`) pour l'intégration UI.&#10;- Application de `@JsonIgnore` sur les champs sensibles ou récursifs&#10;  (ex: mot de passe, listes d'entités liées) dans `User`, `Order`, `Unite`&#10;  pour prévenir les boucles de sérialisation et l'exposition de données.&#10;- Ajout de méthodes de requêtes spécifiques dans `UniteRepository`,&#10;  `UserRepository` et `OrderRepository` pour faciliter l'accès aux données&#10;  (ex: unités par locataire, utilisateurs par rôle, commandes par statut).">
       <option name="closed" value="true" />
-      <created>1774476037130</created>
+      <created>1776264193922</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1774476037130</updated>
+      <updated>1776264193922</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les contrôleurs Spring `@RestController` et&#10;  `@Controller` (Baie, Comptable, Offre, Page, User).&#10;- Retrait des templates HTML Thymeleaf (`dashboard.html`, `login.html`).&#10;- Suppression des dépendances `spring-boot-starter-web`,&#10;  `spring-boot-starter-thymeleaf` et `thymeleaf-extras-springsecurity6`&#10;  du fichier `build.gradle`.&#10;- Intégration du plugin JavaFX et de ses modules (`javafx.controls`,&#10;  `javafx.fxml`) dans `build.gradle`.&#10;- Modification de `WtgApplication` pour lancer l'application JavaFX&#10;  (`JavaFxApp.class`) au lieu de Spring Boot directement.&#10;- Adaptation de `SecurityConfig` pour retirer les configurations&#10;  spécifiques au web (`@EnableWebSecurity`, `SecurityFilterChain`,&#10;  `formLogin`, `logout`) tout en conservant les beans&#10;  d'authentification (PasswordEncoder, AuthenticationManager).">
+      <option name="closed" value="true" />
+      <created>1776324739942</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776324739942</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit" />
-    <MESSAGE value="```&#10;docs: créer le fichier README initial du projet&#10;```" />
-    <MESSAGE value="```&#10;feat(entités, bdd): Ajouter les entités" />
-    <MESSAGE value="```&#10;feat(entités, bdd): Ajouter les entités JPA initiales et configurer BDD&#10;&#10;Ce commit introduit l'ensemble des classes d'entités JPA&#10;pour le modèle de données de l'application, incluant :&#10;&#10;- Baie, Card, Cart, CartItem," />
-    <MESSAGE value="```&#10;feat(entités, bdd): Ajouter les entités JPA initiales et configurer BDD&#10;&#10;Ce commit introduit l'ensemble des classes d'entités JPA&#10;pour le modèle de données de l'application, incluant :&#10;&#10;- Baie, Card, Cart, CartItem, Intervention, Offre, Order,&#10;  OrderItem, Payment, Unite, User&#10;&#10;Il configure également les paramètres de connexion à la base&#10;de données MySQL dans `application.properties`.&#10;```" />
-    <MESSAGE value="feat(entites): ajouter les entités JPA du domaine&#10;&#10;Ajout de toutes les entités de base pour le modèle de données:&#10;Intervention, Order, Baie, Offre, Cart, CartItem" />
-    <MESSAGE value="feat(entites): ajouter les entités JPA du domaine&#10;&#10;Ajout de toutes les entités de base pour le modèle de données:&#10;Intervention, Order, Baie, Offre, Cart, CartItem, OrderItem, Payment,&#10;Card, User, Unite.&#10;Mise à jour du fichier .gitignore pour ignorer&#10;'application-local.properties'." />
-    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d" />
-    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Cré" />
-    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot" />
-    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `" />
-    <MESSAGE value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `CustomUserDetailsService` pour charger les&#10;  utilisateurs via `UserRepository` et leur email.&#10;- Ajout de `spring.profiles.active=local` dans `application.properties`.&#10;```" />
-    <option name="LAST_COMMIT_MESSAGE" value="```&#10;feat(data, sécurité): Intégrer les dépôts JPA et Spring Security&#10;&#10;Intégration complète de la couche d'accès aux données avec les&#10;interfaces JpaRepository pour toutes les entités du domaine.&#10;&#10;Mise en place de Spring Security pour l'authentification et&#10;l'autorisation.&#10;&#10;Détails des changements:&#10;- Création des dépôts JPA pour CartItem, Card, Baie, Offre, User, Unite,&#10;  Intervention, Payment, Cart, Order, OrderItem.&#10;- Ajout de la dépendance 'org.springframework.boot:spring-boot-starter-security'.&#10;- Configuration de `SecurityConfig` (PasswordEncoder, SecurityFilterChain&#10;  avec CSRF désactivé, authentification basique, chemins autorisés).&#10;- Implémentation de `CustomUserDetailsService` pour charger les&#10;  utilisateurs via `UserRepository` et leur email.&#10;- Ajout de `spring.profiles.active=local` dans `application.properties`.&#10;```" />
+    <MESSAGE value="feat(sécurité, api): Gérer les rôles dynamiquement et JsonIgnore (main)&#10;&#10;Ce commit améliore la gestion des rôles utilisateurs et la&#10;sérialisation JSON dans l'application.&#10;&#10;Détails des changements:&#10;- `CustomUserDetailsService` charge désormais les rôles depuis&#10;  la colonne `roles` (format JSON) de l'entité `User`,&#10;  permettant une attribution dynamique des permissions.&#10;- `SecurityConfig` configure des règles d'accès basées sur" />
+    <MESSAGE value="feat(sécurité, api): Gérer les rôles dynamiquement et JsonIgnore (main)&#10;&#10;Ce commit améliore la gestion des rôles utilisateurs et la&#10;sérialisation JSON dans l'application.&#10;&#10;Détails des changements:&#10;- `CustomUserDetailsService` charge désormais les rôles depuis&#10;  la colonne `roles` (format JSON) de l'entité `User`,&#10;  permettant une attribution dynamique des permissions.&#10;- `SecurityConfig` configure des règles d'accès basées sur les&#10;  rôles pour les chemins `/admin/**` et `/comptable/**`.&#10;- Intégration du `DaoAuthenticationProvider` pour lier le&#10;  `UserDetailsService` et l'encodeur de" />
+    <MESSAGE value="feat(sécurité, api): Gérer les rôles dynamiquement et JsonIgnore (main)&#10;&#10;Ce commit améliore la gestion des rôles utilisateurs et la&#10;sérialisation JSON dans l'application.&#10;&#10;Détails des changements:&#10;- `CustomUserDetailsService` charge désormais les rôles depuis&#10;  la colonne `roles` (format JSON) de l'entité `User`,&#10;  permettant une attribution dynamique des permissions.&#10;- `SecurityConfig` configure des règles d'accès basées sur les&#10;  rôles pour les chemins `/admin/**` et `/comptable/**`.&#10;- Intégration du `DaoAuthenticationProvider` pour lier le&#10;  `UserDetailsService` et l'encodeur de mot de passe.&#10;- Ajout des annotations `@JsonIgnore` sur les entités `User`,&#10;  `Order` et `Unite` pour prévenir l'exposition de données&#10;  sensibles (mot de passe) et" />
+    <MESSAGE value="feat(sécurité, api): Gérer les rôles dynamiquement et JsonIgnore (main)&#10;&#10;Ce commit améliore la gestion des rôles utilisateurs et la&#10;sérialisation JSON dans l'application.&#10;&#10;Détails des changements:&#10;- `CustomUserDetailsService` charge désormais les rôles depuis&#10;  la colonne `roles` (format JSON) de l'entité `User`,&#10;  permettant une attribution dynamique des permissions.&#10;- `SecurityConfig` configure des règles d'accès basées sur les&#10;  rôles pour les chemins `/admin/**` et `/comptable/**`.&#10;- Intégration du `DaoAuthenticationProvider` pour lier le&#10;  `UserDetailsService` et l'encodeur de mot de passe.&#10;- Ajout des annotations `@JsonIgnore` sur les entités `User`,&#10;  `Order` et `Unite` pour prévenir l'exposition de données&#10;  sensibles (mot de passe) et éviter les boucles de&#10;  référence lors de la sérialisation JSON." />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/com" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/comptable/**`.&#10;- Ajout des dépendances Thymeleaf (`spring-boot-starter-thymeleaf` et&#10;  `thymeleaf-extras-springsecurity6`) pour l'intégration UI.&#10;- Application de `@JsonIgnore`" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/comptable/**`.&#10;- Ajout des dépendances Thymeleaf (`spring-boot-starter-thymeleaf` et&#10;  `thymeleaf-extras-springsecurity6`) pour l'intégration UI.&#10;- Application de `@JsonIgnore` sur les champs sensibles ou récursifs&#10;  (ex: mot de passe, listes d'entités liées) dans `User`, `Order`, `Unite`&#10;  pour prévenir les boucles de sérialisation et" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/comptable/**`.&#10;- Ajout des dépendances Thymeleaf (`spring-boot-starter-thymeleaf` et&#10;  `thymeleaf-extras-springsecurity6`) pour l'intégration UI.&#10;- Application de `@JsonIgnore` sur les champs sensibles ou récursifs&#10;  (ex: mot de passe, listes d'entités liées) dans `User`, `Order`, `Unite`&#10;  pour prévenir les boucles de sérialisation et l'exposition de données.&#10;- Ajout de méthodes de requêtes spécifiques dans `UniteRepository`,&#10;  `UserRepository` et `OrderRepository` pour faciliter l'accès aux données&#10;  (ex: unités par locataire" />
+    <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/comptable/**`.&#10;- Ajout des dépendances Thymeleaf (`spring-boot-starter-thymeleaf` et&#10;  `thymeleaf-extras-springsecurity6`) pour l'intégration UI.&#10;- Application de `@JsonIgnore` sur les champs sensibles ou récursifs&#10;  (ex: mot de passe, listes d'entités liées) dans `User`, `Order`, `Unite`&#10;  pour prévenir les boucles de sérialisation et l'exposition de données.&#10;- Ajout de méthodes de requêtes spécifiques dans `UniteRepository`,&#10;  `UserRepository` et `OrderRepository` pour faciliter l'accès aux données&#10;  (ex: unités par locataire, utilisateurs par rôle, commandes par statut)." />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégral" />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les" />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les contrôleurs Spring `@RestController` et&#10;  `@Controller` (Baie, Comptable, Offre, Page, User).&#10;- Retrait des templates HTML Thymeleaf (`dashboard.html`, `login.html`).&#10;-" />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les contrôleurs Spring `@RestController` et&#10;  `@Controller` (Baie, Comptable, Offre, Page, User).&#10;- Retrait des templates HTML Thymeleaf (`dashboard.html`, `login.html`).&#10;- Suppression des dépendances `spring-boot-starter-web`,&#10;  `spring-boot-starter-thymeleaf` et `thymeleaf-extras-springsecurity6`&#10;  du fichier `build.gradle`.&#10;- Intégr" />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les contrôleurs Spring `@RestController` et&#10;  `@Controller` (Baie, Comptable, Offre, Page, User).&#10;- Retrait des templates HTML Thymeleaf (`dashboard.html`, `login.html`).&#10;- Suppression des dépendances `spring-boot-starter-web`,&#10;  `spring-boot-starter-thymeleaf` et `thymeleaf-extras-springsecurity6`&#10;  du fichier `build.gradle`.&#10;- Intégration du plugin JavaFX et de ses modules (`javafx.controls`,&#10;  `javafx.fxml`) dans `build.gradle`.&#10;- Modification de `WtgApplication` pour lancer l'application JavaFX&#10;  (`JavaFx" />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les contrôleurs Spring `@RestController` et&#10;  `@Controller` (Baie, Comptable, Offre, Page, User).&#10;- Retrait des templates HTML Thymeleaf (`dashboard.html`, `login.html`).&#10;- Suppression des dépendances `spring-boot-starter-web`,&#10;  `spring-boot-starter-thymeleaf` et `thymeleaf-extras-springsecurity6`&#10;  du fichier `build.gradle`.&#10;- Intégration du plugin JavaFX et de ses modules (`javafx.controls`,&#10;  `javafx.fxml`) dans `build.gradle`.&#10;- Modification de `WtgApplication` pour lancer l'application JavaFX&#10;  (`JavaFxApp.class`) au lieu de Spring Boot directement.&#10;- Adaptation de `SecurityConfig` pour retirer les configurations&#10;  spécifiques au web (`@EnableWebSecurity`, `SecurityFilterChain`,&#10;  `formLogin`, `logout`)" />
+    <MESSAGE value="refactor(architecture, frontend): Remplacer l'interface web par JavaFX (main)&#10;&#10;Ce commit remplace l'intégralité de l'interface utilisateur web&#10;Spring Boot par une application de bureau JavaFX. La couche&#10;contrôleurs web et les templates Thymeleaf ont été supprimés.&#10;&#10;Détails des changements:&#10;- Suppression de tous les contrôleurs Spring `@RestController` et&#10;  `@Controller` (Baie, Comptable, Offre, Page, User).&#10;- Retrait des templates HTML Thymeleaf (`dashboard.html`, `login.html`).&#10;- Suppression des dépendances `spring-boot-starter-web`,&#10;  `spring-boot-starter-thymeleaf` et `thymeleaf-extras-springsecurity6`&#10;  du fichier `build.gradle`.&#10;- Intégration du plugin JavaFX et de ses modules (`javafx.controls`,&#10;  `javafx.fxml`) dans `build.gradle`.&#10;- Modification de `WtgApplication` pour lancer l'application JavaFX&#10;  (`JavaFxApp.class`) au lieu de Spring Boot directement.&#10;- Adaptation de `SecurityConfig` pour retirer les configurations&#10;  spécifiques au web (`@EnableWebSecurity`, `SecurityFilterChain`,&#10;  `formLogin`, `logout`) tout en conservant les beans&#10;  d'authentification (PasswordEncoder, AuthenticationManager)." />
+    <MESSAGE value="{&#13;&#10;  &quot;error&quot;: {&#13;&#10;    &quot;code&quot;: 429,&#13;&#10;    &quot;message&quot;: &quot;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 19.645612759s.&quot;,&#13;&#10;    &quot;status&quot;: &quot;RESOURCE_EXHAUSTED&quot;,&#13;&#10;    &quot;details&quot;: [&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.Help&quot;,&#13;&#10;        &quot;links&quot;: [&#13;&#10;          {&#13;&#10;            &quot;description&quot;: &quot;Learn more about Gemini API quotas&quot;,&#13;&#10;            &quot;url&quot;: &quot;https://ai.google.dev/gemini-api/docs/rate-limits&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.QuotaFailure&quot;,&#13;&#10;        &quot;violations&quot;: [&#13;&#10;          {&#13;&#10;            &quot;quotaMetric&quot;: &quot;generativelanguage.googleapis.com/generate_content_free_tier_requests&quot;,&#13;&#10;            &quot;quotaId&quot;: &quot;GenerateRequestsPerDayPerProjectPerModel-FreeTier&quot;,&#13;&#10;            &quot;quotaDimensions&quot;: {&#13;&#10;              &quot;model&quot;: &quot;gemini-2.5-flash&quot;,&#13;&#10;              &quot;location&quot;: &quot;global&quot;&#13;&#10;            },&#13;&#10;            &quot;quotaValue&quot;: &quot;20&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.RetryInfo&quot;,&#13;&#10;        &quot;retryDelay&quot;: &quot;19s&quot;&#13;&#10;      }&#13;&#10;    ]&#13;&#10;  }&#13;&#10;}" />
+    <MESSAGE value="{&#13;&#10;  &quot;error&quot;: {&#13;&#10;    &quot;code&quot;: 429,&#13;&#10;    &quot;message&quot;: &quot;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 17.176626564s.&quot;,&#13;&#10;    &quot;status&quot;: &quot;RESOURCE_EXHAUSTED&quot;,&#13;&#10;    &quot;details&quot;: [&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.Help&quot;,&#13;&#10;        &quot;links&quot;: [&#13;&#10;          {&#13;&#10;            &quot;description&quot;: &quot;Learn more about Gemini API quotas&quot;,&#13;&#10;            &quot;url&quot;: &quot;https://ai.google.dev/gemini-api/docs/rate-limits&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.QuotaFailure&quot;,&#13;&#10;        &quot;violations&quot;: [&#13;&#10;          {&#13;&#10;            &quot;quotaMetric&quot;: &quot;generativelanguage.googleapis.com/generate_content_free_tier_requests&quot;,&#13;&#10;            &quot;quotaId&quot;: &quot;GenerateRequestsPerDayPerProjectPerModel-FreeTier&quot;,&#13;&#10;            &quot;quotaDimensions&quot;: {&#13;&#10;              &quot;model&quot;: &quot;gemini-2.5-flash&quot;,&#13;&#10;              &quot;location&quot;: &quot;global&quot;&#13;&#10;            },&#13;&#10;            &quot;quotaValue&quot;: &quot;20&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.RetryInfo&quot;,&#13;&#10;        &quot;retryDelay&quot;: &quot;17s&quot;&#13;&#10;      }&#13;&#10;    ]&#13;&#10;  }&#13;&#10;}" />
+    <MESSAGE value="{&#13;&#10;    &quot;error&quot;: {&#13;&#10;        &quot;message&quot;: &quot;You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.&quot;,&#13;&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#13;&#10;        &quot;param&quot;: null,&#13;&#10;        &quot;code&quot;: null&#13;&#10;    }&#13;&#10;}" />
+    <MESSAGE value="{&#13;&#10;  &quot;error&quot;: {&#13;&#10;    &quot;code&quot;: 429,&#13;&#10;    &quot;message&quot;: &quot;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 1.162276546s.&quot;,&#13;&#10;    &quot;status&quot;: &quot;RESOURCE_EXHAUSTED&quot;,&#13;&#10;    &quot;details&quot;: [&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.Help&quot;,&#13;&#10;        &quot;links&quot;: [&#13;&#10;          {&#13;&#10;            &quot;description&quot;: &quot;Learn more about Gemini API quotas&quot;,&#13;&#10;            &quot;url&quot;: &quot;https://ai.google.dev/gemini-api/docs/rate-limits&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.QuotaFailure&quot;,&#13;&#10;        &quot;violations&quot;: [&#13;&#10;          {&#13;&#10;            &quot;quotaMetric&quot;: &quot;generativelanguage.googleapis.com/generate_content_free_tier_requests&quot;,&#13;&#10;            &quot;quotaId&quot;: &quot;GenerateRequestsPerDayPerProjectPerModel-FreeTier&quot;,&#13;&#10;            &quot;quotaDimensions&quot;: {&#13;&#10;              &quot;location&quot;: &quot;global&quot;,&#13;&#10;              &quot;model&quot;: &quot;gemini-2.5-flash&quot;&#13;&#10;            },&#13;&#10;            &quot;quotaValue&quot;: &quot;20&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.RetryInfo&quot;,&#13;&#10;        &quot;retryDelay&quot;: &quot;1s&quot;&#13;&#10;      }&#13;&#10;    ]&#13;&#10;  }&#13;&#10;}" />
+    <MESSAGE value="{&#13;&#10;  &quot;error&quot;: {&#13;&#10;    &quot;code&quot;: 429,&#13;&#10;    &quot;message&quot;: &quot;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 50.797854536s.&quot;,&#13;&#10;    &quot;status&quot;: &quot;RESOURCE_EXHAUSTED&quot;,&#13;&#10;    &quot;details&quot;: [&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.Help&quot;,&#13;&#10;        &quot;links&quot;: [&#13;&#10;          {&#13;&#10;            &quot;description&quot;: &quot;Learn more about Gemini API quotas&quot;,&#13;&#10;            &quot;url&quot;: &quot;https://ai.google.dev/gemini-api/docs/rate-limits&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.QuotaFailure&quot;,&#13;&#10;        &quot;violations&quot;: [&#13;&#10;          {&#13;&#10;            &quot;quotaMetric&quot;: &quot;generativelanguage.googleapis.com/generate_content_free_tier_requests&quot;,&#13;&#10;            &quot;quotaId&quot;: &quot;GenerateRequestsPerDayPerProjectPerModel-FreeTier&quot;,&#13;&#10;            &quot;quotaDimensions&quot;: {&#13;&#10;              &quot;location&quot;: &quot;global&quot;,&#13;&#10;              &quot;model&quot;: &quot;gemini-2.5-flash&quot;&#13;&#10;            },&#13;&#10;            &quot;quotaValue&quot;: &quot;20&quot;&#13;&#10;          }&#13;&#10;        ]&#13;&#10;      },&#13;&#10;      {&#13;&#10;        &quot;@type&quot;: &quot;type.googleapis.com/google.rpc.RetryInfo&quot;,&#13;&#10;        &quot;retryDelay&quot;: &quot;50s&quot;&#13;&#10;      }&#13;&#10;    ]&#13;&#10;  }&#13;&#10;}" />
+    <MESSAGE value="{&#13;&#10;  &quot;error&quot;: {&#13;&#10;    &quot;code&quot;: 503,&#13;&#10;    &quot;message&quot;: &quot;This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.&quot;,&#13;&#10;    &quot;status&quot;: &quot;UNAVAILABLE&quot;&#13;&#10;  }&#13;&#10;}" />
+    <option name="LAST_COMMIT_MESSAGE" value="{&#13;&#10;  &quot;error&quot;: {&#13;&#10;    &quot;code&quot;: 503,&#13;&#10;    &quot;message&quot;: &quot;This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.&quot;,&#13;&#10;    &quot;status&quot;: &quot;UNAVAILABLE&quot;&#13;&#10;  }&#13;&#10;}" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
