@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90a786f2-63b5-47a9-a433-dc18af0c4649" name="Changes" comment="" />
+    <list default="true" id="90a786f2-63b5-47a9-a433-dc18af0c4649" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/UniteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/wtg/repositories/UniteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/wtg/services/ReservationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/wtg/services/ReservationsService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,22 +78,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Java [:org.example.wtg.WtgApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.WTG-lourd [:org.example.wtg.WtgApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/WTG/Java&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/wamp64/www/WTG/Java/WTG-lourd/src/main/java/org/example/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Java [:org.example.wtg.WtgApplication.main()].executor": "Run",
+    "Gradle.WTG-lourd [:org.example.wtg.WtgApplication.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/wamp64/www/WTG/Java",
+    "onboarding.tips.debug.path": "C:/wamp64/www/WTG/Java/WTG-lourd/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -159,6 +164,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+      <path value="$PROJECT_DIR$/WTG-lourd" />
+    </ignored-roots>
     <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des" />
     <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour" />
     <MESSAGE value="feat(sécurité, auth): Configurer l'authentification par formulaire (main)&#10;&#10;Ce commit introduit l'authentification par formulaire pour l'application&#10;interne, remplaçant l'authentification basique. Il met en place des&#10;règles d'accès fines et sécurise la sérialisation des entités.&#10;&#10;Détails des changements:&#10;- Mise en place d'une page de connexion et de déconnexion personnalisées.&#10;- Contrôle d'accès basé sur les rôles (ADMIN, COMPTABLE) pour l'accès&#10;  à l'application interne via `CustomUserDetailsService`.&#10;- Configuration de `SecurityConfig` avec `DaoAuthenticationProvider` et&#10;  des règles d'autorisation pour les chemins `/admin/**` et `/com" />
@@ -185,6 +194,10 @@
     <MESSAGE value="```&#10;build(WTG-lourd): Retirer le sous-projet JavaFX (main)&#10;&#10;Ce commit supprime entièrement le répertoire `WTG-lourd`, qui contenait&#10;l'application de bureau JavaFX.&#10;&#10;Détails des changements:&#10;- Suppression de l'ensemble du code source Java (entités, dépôts,&#10;  sécurité, controllers JavaFX, application principale).&#10;- Retrait des fichiers de configuration Gradle (`build.gradle`,&#10;  `settings.gradle.kts`, `gradlew`, `gradlew.bat`).&#10;- Suppression des ressources (fichiers FXML, CSS, `application.properties`).&#10;- Nettoyage des fichiers de configuration IntelliJ IDEA et `.gitignore`&#10;  spécifiques à ce sous" />
     <MESSAGE value="```&#10;build(WTG-lourd): Retirer le sous-projet JavaFX (main)&#10;&#10;Ce commit supprime entièrement le répertoire `WTG-lourd`, qui contenait&#10;l'application de bureau JavaFX.&#10;&#10;Détails des changements:&#10;- Suppression de l'ensemble du code source Java (entités, dépôts,&#10;  sécurité, controllers JavaFX, application principale).&#10;- Retrait des fichiers de configuration Gradle (`build.gradle`,&#10;  `settings.gradle.kts`, `gradlew`, `gradlew.bat`).&#10;- Suppression des ressources (fichiers FXML, CSS, `application.properties`).&#10;- Nettoyage des fichiers de configuration IntelliJ IDEA et `.gitignore`&#10;  spécifiques à ce sous-projet.&#10;```" />
     <option name="LAST_COMMIT_MESSAGE" value="```&#10;build(WTG-lourd): Retirer le sous-projet JavaFX (main)&#10;&#10;Ce commit supprime entièrement le répertoire `WTG-lourd`, qui contenait&#10;l'application de bureau JavaFX.&#10;&#10;Détails des changements:&#10;- Suppression de l'ensemble du code source Java (entités, dépôts,&#10;  sécurité, controllers JavaFX, application principale).&#10;- Retrait des fichiers de configuration Gradle (`build.gradle`,&#10;  `settings.gradle.kts`, `gradlew`, `gradlew.bat`).&#10;- Suppression des ressources (fichiers FXML, CSS, `application.properties`).&#10;- Nettoyage des fichiers de configuration IntelliJ IDEA et `.gitignore`&#10;  spécifiques à ce sous-projet.&#10;```" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

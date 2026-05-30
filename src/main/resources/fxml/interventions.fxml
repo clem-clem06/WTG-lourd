@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.wtg.views.InterventionsController"
+            stylesheets="@style.css"
+            styleClass="root-pane">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="navbar">
+            <padding><Insets top="14" right="24" bottom="14" left="24"/></padding>
+            <Label text="WorkTogether — Interventions" styleClass="nav-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Retour" onAction="#onRetour" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="scroll-pane">
+            <VBox spacing="20">
+                <padding><Insets top="32" right="40" bottom="40" left="40"/></padding>
+
+                <VBox spacing="6">
+                    <Label text="Gestion des interventions" styleClass="page-title"/>
+                    <Label text="Planifiez et suivez les interventions sur les unités." styleClass="page-subtitle"/>
+                </VBox>
+
+                <!-- Stats -->
+                <HBox spacing="16">
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="TOTAL" styleClass="stat-label"/>
+                        <Label fx:id="statTotal" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card stat-card-warn" HBox.hgrow="ALWAYS">
+                        <Label text="PLANIFIÉES" styleClass="stat-label"/>
+                        <Label fx:id="statPlanifiees" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="EN COURS" styleClass="stat-label"/>
+                        <Label fx:id="statEnCours" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card stat-card-ok" HBox.hgrow="ALWAYS">
+                        <Label text="TERMINÉES" styleClass="stat-label"/>
+                        <Label fx:id="statTerminees" text="—" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+
+                <Label fx:id="feedbackLabel" visible="false" managed="false" wrapText="true" maxWidth="Infinity"/>
+
+                <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                    <!-- Table -->
+                    <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="LISTE DES INTERVENTIONS" styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="countLabel" styleClass="count-badge"/>
+                        </HBox>
+                        <TableView fx:id="interventionsTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="typeCol"        text="Type"         prefWidth="160"/>
+                                <TableColumn fx:id="etatCol"        text="État"         prefWidth="110"/>
+                                <TableColumn fx:id="descriptionCol" text="Description"  prefWidth="220"/>
+                                <TableColumn fx:id="dateDebutCol"   text="Début"        prefWidth="150"/>
+                            </columns>
+                            <placeholder><Label text="Aucune intervention enregistrée."/></placeholder>
+                        </TableView>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button fx:id="deleteBtn" text="Supprimer"
+                                    onAction="#onSupprimer" disable="true" styleClass="btn-delete"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="selectionHint" text="Aucune sélection" styleClass="selection-hint"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Formulaire -->
+                    <VBox spacing="14" styleClass="card" prefWidth="380" minWidth="340">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <Label fx:id="formTitle" text="NOUVELLE INTERVENTION" styleClass="section-title"/>
+
+                        <GridPane hgap="12" vgap="12">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="110" prefWidth="110"/>
+                                <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+                            </columnConstraints>
+
+                            <Label text="Type" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="typeCombo" maxWidth="Infinity" styleClass="combo-box"
+                                      GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="État" styleClass="field-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="etatCombo" maxWidth="Infinity" styleClass="combo-box"
+                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Description" styleClass="field-label"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="descriptionField" promptText="Détails de l'intervention"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Region VBox.vgrow="ALWAYS"/>
+
+                        <HBox spacing="10">
+                            <Button fx:id="cancelEditBtn" text="Annuler"
+                                    onAction="#onAnnuler" visible="false" managed="false"
+                                    styleClass="btn-logout"/>
+                            <Button fx:id="submitBtn" text="Créer l'intervention"
+                                    onAction="#onSubmit" maxWidth="Infinity"
+                                    HBox.hgrow="ALWAYS" styleClass="btn-login"/>
+                        </HBox>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

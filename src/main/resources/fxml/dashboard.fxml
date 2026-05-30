@@ -104,7 +104,7 @@
                 <!-- ─────────────────────────────────────────────
                      SECTION COMPTABLE (visible par Comptable ET Admin)
                 ───────────────────────────────────────────────── -->
-                <VBox spacing="14">
+                <VBox fx:id="comptableSection" spacing="14">
                     <Label text="COMPTABILITÉ" styleClass="section-title"/>
 
                     <TilePane hgap="16" vgap="16" prefColumns="2" prefTileWidth="300" prefTileHeight="160">
@@ -123,6 +123,33 @@
                             <Label text="📋" styleClass="card-icon"/>
                             <Label text="Réservations" styleClass="card-title"/>
                             <Label text="Consulter toutes les commandes et leur statut." styleClass="card-desc" wrapText="true"/>
+                        </VBox>
+
+                    </TilePane>
+                </VBox>
+
+                <!-- ─────────────────────────────────────────────
+                     SECTION TECHNICIEN (visible uniquement ROLE_TECHNICIEN)
+                ───────────────────────────────────────────────── -->
+                <VBox fx:id="technicienSection" spacing="14" visible="false" managed="false">
+                    <Label text="TECHNIQUE" styleClass="section-title"/>
+
+                    <TilePane hgap="16" vgap="16" prefColumns="2" prefTileWidth="300" prefTileHeight="160">
+
+                        <!-- CARTE : Unités -->
+                        <VBox onMouseClicked="#onUnites" styleClass="card" spacing="8">
+                            <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+                            <Label text="🔧" styleClass="card-icon"/>
+                            <Label text="Unités &amp; Baies" styleClass="card-title"/>
+                            <Label text="Consulter et modifier l'état des unités." styleClass="card-desc" wrapText="true"/>
+                        </VBox>
+
+                        <!-- CARTE : Interventions -->
+                        <VBox onMouseClicked="#onInterventions" styleClass="card" spacing="8">
+                            <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+                            <Label text="🛠️" styleClass="card-icon"/>
+                            <Label text="Interventions" styleClass="card-title"/>
+                            <Label text="Gérer les interventions sur les unités." styleClass="card-desc" wrapText="true"/>
                         </VBox>
 
                     </TilePane>

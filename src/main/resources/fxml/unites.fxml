@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.wtg.views.UnitesController"
+            stylesheets="@style.css"
+            styleClass="root-pane">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="navbar">
+            <padding><Insets top="14" right="24" bottom="14" left="24"/></padding>
+            <Label text="WorkTogether — Unités" styleClass="nav-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Retour" onAction="#onRetour" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="scroll-pane">
+            <VBox spacing="20">
+                <padding><Insets top="32" right="40" bottom="40" left="40"/></padding>
+
+                <VBox spacing="6">
+                    <Label text="Gestion des unités" styleClass="page-title"/>
+                    <Label text="Sélectionnez une unité pour modifier son état." styleClass="page-subtitle"/>
+                </VBox>
+
+                <!-- Stats -->
+                <HBox spacing="16">
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="UNITÉS TOTALES" styleClass="stat-label"/>
+                        <Label fx:id="statTotal" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card stat-card-ok" HBox.hgrow="ALWAYS">
+                        <Label text="LIBRES" styleClass="stat-label"/>
+                        <Label fx:id="statLibres" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card stat-card-warn" HBox.hgrow="ALWAYS">
+                        <Label text="OCCUPÉES" styleClass="stat-label"/>
+                        <Label fx:id="statOccupees" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="MAINTENANCE" styleClass="stat-label"/>
+                        <Label fx:id="statMaintenance" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="INCIDENT" styleClass="stat-label"/>
+                        <Label fx:id="statIncident" text="—" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+
+                <Label fx:id="feedbackLabel" visible="false" managed="false" wrapText="true" maxWidth="Infinity"/>
+
+                <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                    <!-- Table des unités -->
+                    <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="STOCK DES UNITÉS" styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="countLabel" styleClass="count-badge"/>
+                        </HBox>
+                        <TableView fx:id="unitesTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="baieCol"      text="Baie"       prefWidth="120"/>
+                                <TableColumn fx:id="numeroCol"    text="N°"         prefWidth="80"/>
+                                <TableColumn fx:id="etatCol"      text="État"       prefWidth="120"/>
+                                <TableColumn fx:id="locataireCol" text="Locataire"  prefWidth="220"/>
+                            </columns>
+                            <placeholder><Label text="Aucune unité enregistrée."/></placeholder>
+                        </TableView>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="selectionHint" text="Aucune sélection" styleClass="selection-hint"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Panneau modification état -->
+                    <VBox spacing="14" styleClass="card" prefWidth="300" minWidth="260">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <Label text="MODIFIER L'ÉTAT" styleClass="section-title"/>
+
+                        <Label text="Nouvel état :" styleClass="field-label"/>
+                        <ComboBox fx:id="etatCombo" maxWidth="Infinity" styleClass="combo-box"/>
+
+                        <Region VBox.vgrow="ALWAYS"/>
+
+                        <Button fx:id="appliquerBtn" text="Appliquer"
+                                onAction="#onAppliquer" disable="true"
+                                maxWidth="Infinity" styleClass="btn-login"/>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
