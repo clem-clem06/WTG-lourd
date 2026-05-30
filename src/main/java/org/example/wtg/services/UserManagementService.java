@@ -196,4 +196,27 @@ public class UserManagementService {
         userRepository.deleteById(id);
         log.info("Suppression compte staff id={} email={}", id, user.getEmail());
     }
+
+    // ─────────────────────────────────────────────────────────
+    //  CHANGER SON PROPRE MOT DE PASSE
+    // ─────────────────────────────────────────────────────────
+
+    /**
+     * Permet à l'utilisateur connecté de changer son mot de passe.
+     * Vérifie l'ancien mot de passe avant d'appliquer le nouveau.
+     */
+    public void changerMotDePasse(String email, String ancienMdp, String nouveauMdp) {
+        if (nouveauMdp == null || nouveauMdp.length() < PASSWORD_MIN)
+            throw new IllegalArgumentException("Le nouveau mot de passe doit faire au moins " + PASSWORD_MIN + " caractères.");
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalStateException("Utilisateur introuvable."));
+
+        if (!passwordEncoder.matches(ancienMdp, user.getPassword()))
+            throw new IllegalArgumentException("Mot de passe actuel incorrect.");
+
+        user.setPassword(passwordEncoder.encode(nouveauMdp));
+        userRepository.save(user);
+        log.info("Mot de passe changé pour {}", email);
+    }
 }
