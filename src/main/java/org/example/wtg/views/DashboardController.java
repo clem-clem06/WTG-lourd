@@ -30,7 +30,7 @@ public class DashboardController {
             roleBadge.getStyleClass().add("badge-admin");
             show(adminSection);
             show(comptableSection);
-            hide(technicienSection);
+            show(technicienSection);  // l'admin voit tout
         } else if (isTechnicien) {
             roleBadge.setText("Technicien");
             roleBadge.getStyleClass().add("badge-technicien");
