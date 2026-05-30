@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -71,6 +72,9 @@
                             <Region HBox.hgrow="ALWAYS"/>
                             <Label fx:id="countLabel" styleClass="count-badge"/>
                         </HBox>
+                        <TextField fx:id="rechercheField"
+                                   promptText="🔍  Rechercher par baie, état, locataire…"
+                                   styleClass="text-field"/>
                         <TableView fx:id="unitesTable" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="baieCol"      text="Baie"       prefWidth="120"/>
