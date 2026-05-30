@@ -3,7 +3,10 @@ package org.example.wtg;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 /**
@@ -12,6 +15,7 @@ import org.springframework.context.ApplicationContext;
  */
 public class SceneManager {
 
+    private static final Logger log = LoggerFactory.getLogger(SceneManager.class);
     private static Stage stage;
     private static ApplicationContext springContext;
 
@@ -53,7 +57,12 @@ public class SceneManager {
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Erreur lors du chargement de {}", fxmlPath, e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur de chargement");
+            alert.setHeaderText("Impossible d'ouvrir la page");
+            alert.setContentText(e.getCause() != null ? e.getCause().getMessage() : e.getMessage());
+            alert.showAndWait();
         }
     }
 }
