@@ -85,6 +85,9 @@ public class ReservationsService {
         // Met aussi à jour tous les Payment liés (c'est ce que Symfony affiche)
         for (Payment p : o.getPayments()) {
             p.setStatus("paid");
+            // Le message de checkout ("Virement bancaire en attente de réception")
+            // n'est plus d'actualité une fois le virement validé.
+            p.setGatewayResponse("Virement reçu");
             paymentRepository.save(p);
         }
 
