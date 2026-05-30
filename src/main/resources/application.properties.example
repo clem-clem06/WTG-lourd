@@ -1,0 +1,28 @@
+# ============================================================
+#  MODÈLE de configuration — à copier en application.properties
+#  (application.properties est git-ignoré : il peut contenir des
+#   valeurs propres à ton poste / ta prod).
+#
+#  Copie :   cp application.properties.example application.properties
+#
+#  Pour viser une autre base, surcharge plutôt par variables d'env
+#  (DB_URL / DB_USER / DB_PASSWORD) ou par arguments --spring.datasource.*
+# ============================================================
+
+# ── Connexion MySQL (même BDD que le site Symfony) ──
+spring.datasource.url=${DB_URL:jdbc:mysql://127.0.0.1:3306/worktogether?serverTimezone=Europe/Paris&useSSL=false&allowPublicKeyRetrieval=true}
+spring.datasource.username=${DB_USER:root}
+spring.datasource.password=${DB_PASSWORD:}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# ── JPA / Hibernate ──
+# "none" : le schéma est créé par les migrations Symfony, JPA n'y touche pas.
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# ── Logs ──
+# false en prod. Mettre true en dev pour voir les requêtes SQL.
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=false
+logging.level.org.hibernate.SQL=WARN
+logging.level.org.springframework=WARN

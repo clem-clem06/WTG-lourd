@@ -44,9 +44,15 @@ bin/
 
 ### Secrets / configs locales ###
 # Surcharges locales — NE JAMAIS committer (peut contenir des credentials)
+# Le vrai application.properties est ignoré ; le modèle versionné est
+# application.properties.example
+application.properties
 application-local.properties
 .env
 .env.*
+
+# Scripts de lancement avec credentials (à distribuer à la main, pas sur git)
+lancer-*.bat
 
 ### Logs ###
 logs/
