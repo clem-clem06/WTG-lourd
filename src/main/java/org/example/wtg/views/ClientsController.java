@@ -3,6 +3,7 @@ package org.example.wtg.views;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
@@ -27,6 +28,7 @@ public class ClientsController {
     @FXML private Label statInactifs;
     @FXML private Label statUnites;
 
+    @FXML private javafx.scene.control.TextField rechercheField;
     @FXML private TableView<User> clientsTable;
     @FXML private TableColumn<User, String> emailCol;
     @FXML private TableColumn<User, String> cmdCol;
@@ -61,7 +63,14 @@ public class ClientsController {
                 new SimpleStringProperty(String.valueOf(c.getValue().getOrders().size())));
         unitesCol.setCellValueFactory(c ->
                 new SimpleStringProperty(String.valueOf(c.getValue().getUnites().size())));
-        clientsTable.setItems(FXCollections.observableArrayList(clients));
+
+        ObservableList<User> obs = FXCollections.observableArrayList(clients);
+        FilteredList<User> filtered = new FilteredList<>(obs, u -> true);
+        clientsTable.setItems(filtered);
+        rechercheField.textProperty().addListener((o, old, val) -> {
+            String t = val == null ? "" : val.toLowerCase().trim();
+            filtered.setPredicate(u -> t.isEmpty() || u.getEmail().toLowerCase().contains(t));
+        });
 
         // ── PieChart ──
         ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(

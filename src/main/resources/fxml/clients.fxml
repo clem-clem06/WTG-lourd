@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -61,6 +62,9 @@
                     <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
                         <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
                         <Label text="LISTE DES CLIENTS" styleClass="section-title"/>
+                        <TextField fx:id="rechercheField"
+                                   promptText="🔍  Rechercher par email…"
+                                   styleClass="text-field"/>
                         <TableView fx:id="clientsTable" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="emailCol"    text="Email"         prefWidth="300"/>
