@@ -1,0 +1,13 @@
+# ============================================================
+#  MODÈLE du profil PROD — à copier en application-prod.properties
+#  (application-prod.properties est git-ignoré car il contient le mot de passe).
+#
+#  Copie :   cp application-prod.properties.example application-prod.properties
+#  puis renseigne tes vraies valeurs de prod.
+#
+#  Ce fichier est embarqué dans le jar au build → le jar (profil prod par
+#  défaut) se connecte tout seul à cette base.
+# ============================================================
+spring.datasource.url=jdbc:mysql://SERVEUR_PROD:3306/appdb?serverTimezone=Europe/Paris&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=UTILISATEUR_PROD
+spring.datasource.password=MOT_DE_PASSE_PROD

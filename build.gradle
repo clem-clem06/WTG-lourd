@@ -63,3 +63,11 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// En DÉV (`gradlew bootRun`) on force le profil "dev" → BDD locale 127.0.0.1.
+// Le .jar distribué garde le profil "prod" par défaut (cf. application.properties),
+// donc il se connecte tout seul à la base de prod.
+// (Si tu lances depuis IntelliJ : Run config → Active profiles = dev.)
+tasks.matching { it.name == 'bootRun' }.configureEach {
+    jvmArgs('-Dspring.profiles.active=dev')
+}
