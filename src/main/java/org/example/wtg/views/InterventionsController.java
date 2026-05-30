@@ -2,9 +2,12 @@ package org.example.wtg.views;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -36,12 +39,15 @@ public class InterventionsController {
     @FXML private Label countLabel, selectionHint, feedbackLabel, formTitle;
 
     @FXML private TableView<Intervention> interventionsTable;
-    @FXML private TableColumn<Intervention, String> typeCol, etatCol, descriptionCol, dateDebutCol;
+    @FXML private TableColumn<Intervention, String> typeCol, etatCol, unitesCol, descriptionCol, dateDebutCol;
 
     @FXML private ComboBox<String> typeCombo, etatCombo;
-    @FXML private TextField descriptionField;
+    @FXML private TextField descriptionField, rechercheField;
+    @FXML private DatePicker dateDebutPicker;
     @FXML private ListView<Unite> unitesListView;
     @FXML private Button submitBtn, cancelEditBtn, deleteBtn;
+
+    private ObservableList<Unite> toutesLesUnites = FXCollections.observableArrayList();
 
     private Intervention interventionEnEdition = null;
 
@@ -60,6 +66,17 @@ public class InterventionsController {
             String d = c.getValue().getDescription();
             return new SimpleStringProperty(d == null ? "—" : d);
         });
+        unitesCol.setCellValueFactory(c -> {
+            var unites = c.getValue().getUnites();
+            if (unites == null || unites.isEmpty()) return new SimpleStringProperty("—");
+            if (unites.size() <= 2) {
+                String s = unites.stream()
+                        .map(u -> (u.getBaie() != null ? u.getBaie().getReference() : "?") + "-" + u.getNumero())
+                        .reduce((a, b) -> a + ", " + b).orElse("");
+                return new SimpleStringProperty(s);
+            }
+            return new SimpleStringProperty(unites.size() + " unités");
+        });
         dateDebutCol.setCellValueFactory(c -> {
             LocalDateTime d = c.getValue().getDateDebut();
             return new SimpleStringProperty(d == null ? "—" : d.format(FMT));
@@ -69,8 +86,9 @@ public class InterventionsController {
         typeCombo.getSelectionModel().selectFirst();
         etatCombo.getItems().addAll(ETATS);
         etatCombo.getSelectionModel().selectFirst();
+        dateDebutPicker.setValue(java.time.LocalDate.now());
 
-        // ListView multi-sélection des unités
+        // ListView multi-sélection des unités avec recherche
         unitesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         unitesListView.setCellFactory(lv -> new ListCell<>() {
             @Override protected void updateItem(Unite u, boolean empty) {
@@ -81,8 +99,22 @@ public class InterventionsController {
                 setText(baie + " — " + u.getNumero() + "  (" + etat + ")");
             }
         });
-        unitesListView.setItems(FXCollections.observableArrayList(
-                service.listerUnitesDisponibles()));
+
+        toutesLesUnites.setAll(service.listerUnitesDisponibles());
+        FilteredList<Unite> filteredUnites = new FilteredList<>(toutesLesUnites, u -> true);
+        unitesListView.setItems(filteredUnites);
+
+        // Filtre en temps réel selon la saisie
+        rechercheField.textProperty().addListener((obs, old, val) -> {
+            String terme = val == null ? "" : val.toLowerCase().trim();
+            filteredUnites.setPredicate(u -> {
+                if (terme.isEmpty()) return true;
+                String baie   = u.getBaie()  != null ? u.getBaie().getReference().toLowerCase() : "";
+                String numero = u.getNumero() != null ? u.getNumero().toLowerCase() : "";
+                String etat   = u.getEtat()   != null ? u.getEtat().toLowerCase() : "";
+                return baie.contains(terme) || numero.contains(terme) || etat.contains(terme);
+            });
+        });
 
         interventionsTable.getSelectionModel().selectedItemProperty().addListener((obs, old, sel) -> {
             if (sel == null) modeCreation(); else modeEdition(sel);
@@ -102,16 +134,19 @@ public class InterventionsController {
                     .getSelectedItems().stream()
                     .map(Unite::getId)
                     .collect(Collectors.toList());
+            java.time.LocalDate dateDebut = dateDebutPicker.getValue();
 
             if (interventionEnEdition == null) {
-                service.creerIntervention(type, description, etat, LocalDateTime.now(), uniteIds);
+                service.creerIntervention(type, description, etat,
+                        dateDebut != null ? dateDebut.atStartOfDay() : LocalDateTime.now(), uniteIds);
                 String nbUnites = uniteIds.isEmpty() ? "" : " (" + uniteIds.size() + " unité(s))";
                 afficherFeedback("Intervention créée : " + type + nbUnites, true);
             } else {
                 boolean ok = ConfirmDialog.confirm("Modifier l'intervention ?",
-                        "L'état et la description seront mis à jour.", "Enregistrer", false);
+                        "Type, état, description, date et unités seront mis à jour.", "Enregistrer", false);
                 if (!ok) return;
-                service.changerEtat(interventionEnEdition.getId(), etat);
+                service.modifierIntervention(interventionEnEdition.getId(),
+                        type, description, etat, dateDebut, uniteIds);
                 afficherFeedback("Intervention mise à jour.", true);
             }
             rafraichir();
@@ -146,6 +181,8 @@ public class InterventionsController {
         typeCombo.getSelectionModel().selectFirst();
         etatCombo.getSelectionModel().selectFirst();
         descriptionField.clear();
+        rechercheField.clear();
+        dateDebutPicker.setValue(java.time.LocalDate.now());
         unitesListView.getSelectionModel().clearSelection();
         formTitle.setText("NOUVELLE INTERVENTION");
         submitBtn.setText("Créer l'intervention");
@@ -161,6 +198,9 @@ public class InterventionsController {
         if (i.getEtat() != null && etatCombo.getItems().contains(i.getEtat()))
             etatCombo.getSelectionModel().select(i.getEtat());
         descriptionField.setText(i.getDescription() == null ? "" : i.getDescription());
+        // Pré-remplir la date
+        if (i.getDateDebut() != null) dateDebutPicker.setValue(i.getDateDebut().toLocalDate());
+        else dateDebutPicker.setValue(java.time.LocalDate.now());
         // Pré-sélectionner les unités déjà liées
         unitesListView.getSelectionModel().clearSelection();
         if (i.getUnites() != null) {
