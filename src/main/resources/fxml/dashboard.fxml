@@ -40,6 +40,10 @@
             <!-- Email de l'utilisateur connecté -->
             <Label fx:id="emailLabel" styleClass="nav-email"/>
 
+            <!-- Bouton changer mot de passe -->
+            <Button text="🔑"
+                    onAction="#onChangerMotDePasse"
+                    styleClass="btn-logout"/>
             <!-- Bouton Déconnexion -->
             <Button text="Déconnexion"
                     onAction="#onLogout"

@@ -4,12 +4,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import org.example.wtg.SceneManager;
+import org.example.wtg.services.UserManagementService;
+import org.example.wtg.ui.ConfirmDialog;
+import org.example.wtg.ui.PasswordDialog;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DashboardController {
+
+    private final UserManagementService userManagementService;
+    public DashboardController(UserManagementService userManagementService) {
+        this.userManagementService = userManagementService;
+    }
 
     @FXML private Label emailLabel;
     @FXML private Label roleBadge;
@@ -48,6 +56,19 @@ public class DashboardController {
     }
 
     // ── Navbar ──────────────────────────────────────────────────
+    @FXML public void onChangerMotDePasse() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        String[] result = PasswordDialog.show();
+        if (result == null) return; // annulé
+        try {
+            userManagementService.changerMotDePasse(email, result[0], result[1]);
+            ConfirmDialog.confirm("Mot de passe changé",
+                    "Votre mot de passe a été mis à jour avec succès.", "OK", false);
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            ConfirmDialog.confirm("Erreur", e.getMessage(), "OK", true);
+        }
+    }
+
     @FXML public void onLogout() {
         SecurityContextHolder.clearContext();
         SceneManager.switchTo("/fxml/login.fxml", "WorkTogether — Connexion", 450, 520, false);
