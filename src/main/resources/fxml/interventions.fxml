@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -115,7 +116,12 @@
                                        GridPane.rowIndex="2" GridPane.columnIndex="1"/>
                         </GridPane>
 
-                        <Region VBox.vgrow="ALWAYS"/>
+                        <Label text="Unités concernées" styleClass="field-label"/>
+                        <Label text="Ctrl+clic pour sélectionner plusieurs unités"
+                               styleClass="selection-hint"/>
+                        <ListView fx:id="unitesListView"
+                                  prefHeight="160" VBox.vgrow="ALWAYS"
+                                  styleClass="card"/>
 
                         <HBox spacing="10">
                             <Button fx:id="cancelEditBtn" text="Annuler"

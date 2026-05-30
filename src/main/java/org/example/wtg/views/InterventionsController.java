@@ -6,17 +6,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.example.wtg.SceneManager;
 import org.example.wtg.entities.Intervention;
+import org.example.wtg.entities.Unite;
 import org.example.wtg.services.InterventionsService;
 import org.example.wtg.ui.ConfirmDialog;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class InterventionsController {
@@ -34,6 +40,7 @@ public class InterventionsController {
 
     @FXML private ComboBox<String> typeCombo, etatCombo;
     @FXML private TextField descriptionField;
+    @FXML private ListView<Unite> unitesListView;
     @FXML private Button submitBtn, cancelEditBtn, deleteBtn;
 
     private Intervention interventionEnEdition = null;
@@ -63,6 +70,20 @@ public class InterventionsController {
         etatCombo.getItems().addAll(ETATS);
         etatCombo.getSelectionModel().selectFirst();
 
+        // ListView multi-sélection des unités
+        unitesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        unitesListView.setCellFactory(lv -> new ListCell<>() {
+            @Override protected void updateItem(Unite u, boolean empty) {
+                super.updateItem(u, empty);
+                if (empty || u == null) { setText(null); return; }
+                String baie = u.getBaie() != null ? u.getBaie().getReference() : "?";
+                String etat = u.getEtat() != null ? u.getEtat() : "?";
+                setText(baie + " — " + u.getNumero() + "  (" + etat + ")");
+            }
+        });
+        unitesListView.setItems(FXCollections.observableArrayList(
+                service.listerUnitesDisponibles()));
+
         interventionsTable.getSelectionModel().selectedItemProperty().addListener((obs, old, sel) -> {
             if (sel == null) modeCreation(); else modeEdition(sel);
         });
@@ -77,9 +98,15 @@ public class InterventionsController {
             String etat        = etatCombo.getSelectionModel().getSelectedItem();
             String description = descriptionField.getText() == null ? "" : descriptionField.getText().trim();
 
+            List<Integer> uniteIds = unitesListView.getSelectionModel()
+                    .getSelectedItems().stream()
+                    .map(Unite::getId)
+                    .collect(Collectors.toList());
+
             if (interventionEnEdition == null) {
-                service.creerIntervention(type, description, etat, LocalDateTime.now());
-                afficherFeedback("Intervention créée : " + type, true);
+                service.creerIntervention(type, description, etat, LocalDateTime.now(), uniteIds);
+                String nbUnites = uniteIds.isEmpty() ? "" : " (" + uniteIds.size() + " unité(s))";
+                afficherFeedback("Intervention créée : " + type + nbUnites, true);
             } else {
                 boolean ok = ConfirmDialog.confirm("Modifier l'intervention ?",
                         "L'état et la description seront mis à jour.", "Enregistrer", false);
@@ -119,6 +146,7 @@ public class InterventionsController {
         typeCombo.getSelectionModel().selectFirst();
         etatCombo.getSelectionModel().selectFirst();
         descriptionField.clear();
+        unitesListView.getSelectionModel().clearSelection();
         formTitle.setText("NOUVELLE INTERVENTION");
         submitBtn.setText("Créer l'intervention");
         cancelEditBtn.setVisible(false); cancelEditBtn.setManaged(false);
@@ -133,6 +161,14 @@ public class InterventionsController {
         if (i.getEtat() != null && etatCombo.getItems().contains(i.getEtat()))
             etatCombo.getSelectionModel().select(i.getEtat());
         descriptionField.setText(i.getDescription() == null ? "" : i.getDescription());
+        // Pré-sélectionner les unités déjà liées
+        unitesListView.getSelectionModel().clearSelection();
+        if (i.getUnites() != null) {
+            unitesListView.getItems().forEach(u -> {
+                if (i.getUnites().stream().anyMatch(lu -> lu.getId().equals(u.getId())))
+                    unitesListView.getSelectionModel().select(u);
+            });
+        }
         formTitle.setText("MODIFIER : " + i.getType());
         submitBtn.setText("Enregistrer");
         cancelEditBtn.setVisible(true); cancelEditBtn.setManaged(true);

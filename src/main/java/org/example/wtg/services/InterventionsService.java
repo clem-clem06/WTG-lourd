@@ -1,7 +1,9 @@
 package org.example.wtg.services;
 
 import org.example.wtg.entities.Intervention;
+import org.example.wtg.entities.Unite;
 import org.example.wtg.repositories.InterventionRepository;
+import org.example.wtg.repositories.UniteRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,22 @@ public class InterventionsService {
     private static final Logger log = LoggerFactory.getLogger(InterventionsService.class);
 
     private final InterventionRepository interventionRepository;
+    private final UniteRepository uniteRepository;
 
-    public InterventionsService(InterventionRepository interventionRepository) {
+    public InterventionsService(InterventionRepository interventionRepository,
+                                UniteRepository uniteRepository) {
         this.interventionRepository = interventionRepository;
+        this.uniteRepository = uniteRepository;
+    }
+
+    /** Toutes les unités disponibles pour la liste de sélection */
+    @Transactional(readOnly = true)
+    public List<Unite> listerUnitesDisponibles() {
+        List<Unite> unites = uniteRepository.findAll();
+        unites.forEach(u -> {
+            if (u.getBaie() != null) u.getBaie().getReference();
+        });
+        return unites;
     }
 
     @Transactional(readOnly = true)
@@ -47,7 +62,8 @@ public class InterventionsService {
     }
 
     @Transactional
-    public Intervention creerIntervention(String type, String description, String etat, LocalDateTime dateDebut) {
+    public Intervention creerIntervention(String type, String description, String etat,
+                                          LocalDateTime dateDebut, List<Integer> uniteIds) {
         if (type == null || type.isBlank())
             throw new IllegalArgumentException("Le type est obligatoire.");
         if (etat == null || etat.isBlank())
@@ -58,8 +74,15 @@ public class InterventionsService {
         i.setDescription(description == null ? "" : description.trim());
         i.setEtat(etat);
         i.setDateDebut(dateDebut != null ? dateDebut : LocalDateTime.now());
+
+        if (uniteIds != null && !uniteIds.isEmpty()) {
+            List<Unite> unites = uniteRepository.findAllById(uniteIds);
+            i.setUnites(unites);
+        }
+
         Intervention saved = interventionRepository.save(i);
-        log.info("Intervention créée id={} type={} etat={}", saved.getId(), type, etat);
+        log.info("Intervention créée id={} type={} etat={} ({} unités)",
+                saved.getId(), type, etat, i.getUnites().size());
         return saved;
     }
 
