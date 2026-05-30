@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 /**
- * Couche métier pour la gestion des comptes ADMIN / COMPTABLE.
+ * Couche métier pour la gestion des comptes ADMIN / COMPTABLE / TECHNICIEN.
  *
  * Règle de sécurité : on NE touche JAMAIS aux comptes ROLE_CLIENT (ils sont
  * gérés par le site Symfony côté client). Toute tentative est rejetée.
@@ -25,7 +25,7 @@ public class UserManagementService {
     private static final Logger log = LoggerFactory.getLogger(UserManagementService.class);
 
     // Rôles autorisés pour la création via l'interface admin
-    private static final Set<String> ROLES_AUTORISES = Set.of("ROLE_ADMIN", "ROLE_COMPTABLE");
+    private static final Set<String> ROLES_AUTORISES = Set.of("ROLE_ADMIN", "ROLE_COMPTABLE", "ROLE_TECHNICIEN");
 
     // Validation email basique (même principe que la contrainte Symfony Assert\Email)
     private static final Pattern EMAIL_REGEX =
@@ -62,7 +62,7 @@ public class UserManagementService {
      *
      * @param email          doit être un email valide et unique
      * @param motDePasseBrut minimum 8 caractères, sera hashé en BCrypt
-     * @param role           "ROLE_ADMIN" ou "ROLE_COMPTABLE" uniquement
+     * @param role           "ROLE_ADMIN", "ROLE_COMPTABLE" ou "ROLE_TECHNICIEN" uniquement
      * @return l'utilisateur créé (avec son ID généré)
      * @throws IllegalArgumentException si une validation échoue
      * @throws IllegalStateException    si l'email est déjà pris
@@ -71,7 +71,7 @@ public class UserManagementService {
 
         // 1. Validations d'entrée
         if (role == null || !ROLES_AUTORISES.contains(role)) {
-            throw new IllegalArgumentException("Rôle invalide. Seuls ADMIN et COMPTABLE sont autorisés.");
+            throw new IllegalArgumentException("Rôle invalide. Seuls ADMIN, COMPTABLE et TECHNICIEN sont autorisés.");
         }
         if (email == null || email.isBlank() || !EMAIL_REGEX.matcher(email).matches()) {
             throw new IllegalArgumentException("Adresse email invalide.");
@@ -106,12 +106,12 @@ public class UserManagementService {
     /**
      * Modifie un compte existant.
      * Le mot de passe est optionnel : s'il est null ou vide, il n'est pas changé.
-     * Le rôle peut passer entre ADMIN et COMPTABLE, mais pas vers CLIENT.
+     * Le rôle peut passer entre ADMIN, COMPTABLE et TECHNICIEN, mais pas vers CLIENT.
      *
      * @param id                    identifiant du user à modifier
      * @param email                 nouvel email (ou l'ancien si on ne change pas)
      * @param motDePasseOptionnel   null/vide = garder le mot de passe actuel
-     * @param role                  "ROLE_ADMIN" ou "ROLE_COMPTABLE"
+     * @param role                  "ROLE_ADMIN", "ROLE_COMPTABLE" ou "ROLE_TECHNICIEN"
      * @return l'utilisateur mis à jour
      */
     public User modifierPersonnel(Integer id, String email, String motDePasseOptionnel, String role) {
@@ -119,7 +119,7 @@ public class UserManagementService {
             throw new IllegalArgumentException("Identifiant manquant.");
         }
         if (role == null || !ROLES_AUTORISES.contains(role)) {
-            throw new IllegalArgumentException("Rôle invalide. Seuls ADMIN et COMPTABLE sont autorisés.");
+            throw new IllegalArgumentException("Rôle invalide. Seuls ADMIN, COMPTABLE et TECHNICIEN sont autorisés.");
         }
         if (email == null || email.isBlank() || !EMAIL_REGEX.matcher(email).matches()) {
             throw new IllegalArgumentException("Adresse email invalide.");
@@ -182,7 +182,7 @@ public class UserManagementService {
         if (rolesJson.contains("ROLE_CLIENT")) {
             throw new IllegalStateException("Impossible de supprimer un compte client via cette interface.");
         }
-        if (!rolesJson.contains("ROLE_ADMIN") && !rolesJson.contains("ROLE_COMPTABLE")) {
+        if (!rolesJson.contains("ROLE_ADMIN") && !rolesJson.contains("ROLE_COMPTABLE") && !rolesJson.contains("ROLE_TECHNICIEN")) {
             throw new IllegalStateException("Ce compte n'appartient pas au personnel.");
         }
 

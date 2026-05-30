@@ -46,6 +46,10 @@ dependencies {
     // BDD MySQL
     runtimeOnly 'com.mysql:mysql-connector-j'
 
+    // Bouncy Castle : implémentation Argon2 pour Java
+    // Nécessaire car Symfony utilise argon2id (security.yaml) et non BCrypt
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+
     // Tests unitaires : JUnit 5 + Mockito + AssertJ (fournis par le starter)
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

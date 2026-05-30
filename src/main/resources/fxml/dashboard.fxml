@@ -107,7 +107,7 @@
                 <VBox spacing="14">
                     <Label text="COMPTABILITÉ" styleClass="section-title"/>
 
-                    <TilePane hgap="16" vgap="16" prefColumns="3" prefTileWidth="260" prefTileHeight="140">
+                    <TilePane hgap="16" vgap="16" prefColumns="2" prefTileWidth="300" prefTileHeight="160">
 
                         <!-- CARTE : Clients -->
                         <VBox onMouseClicked="#onClients" styleClass="card" spacing="8">

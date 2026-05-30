@@ -48,9 +48,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
 
         // 3. Vérifie que l'utilisateur a le droit d'accéder à l'application interne
-        //    Seuls ROLE_ADMIN et ROLE_COMPTABLE peuvent se connecter ici
+        //    Seuls ROLE_ADMIN, ROLE_COMPTABLE et ROLE_TECHNICIEN peuvent se connecter ici
         boolean aAcces = rolesList.stream()
-                .anyMatch(r -> r.equals("ROLE_ADMIN") || r.equals("ROLE_COMPTABLE"));
+                .anyMatch(r -> r.equals("ROLE_ADMIN") || r.equals("ROLE_COMPTABLE") || r.equals("ROLE_TECHNICIEN"));
 
         if (!aAcces) {
             // DisabledException = "compte désactivé" → Spring Security affiche

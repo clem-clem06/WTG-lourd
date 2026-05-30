@@ -14,10 +14,10 @@ public class Offre {
     private Integer nombreUnites;
 
     @Column(name = "prix_mensuel")
-    private Integer prixMensuel;
+    private Double prixMensuel;
 
     @Column(name = "prix_annuel")
-    private Integer prixAnnuel;
+    private Double prixAnnuel;
 
     public Integer getId() {
         return id;
@@ -43,19 +43,19 @@ public class Offre {
         this.nombreUnites = nombreUnites;
     }
 
-    public Integer getPrixMensuel() {
+    public Double getPrixMensuel() {
         return prixMensuel;
     }
 
-    public void setPrixMensuel(Integer prixMensuel) {
+    public void setPrixMensuel(Double prixMensuel) {
         this.prixMensuel = prixMensuel;
     }
 
-    public Integer getPrixAnnuel() {
+    public Double getPrixAnnuel() {
         return prixAnnuel;
     }
 
-    public void setPrixAnnuel(Integer prixAnnuel) {
+    public void setPrixAnnuel(Double prixAnnuel) {
         this.prixAnnuel = prixAnnuel;
     }
 }

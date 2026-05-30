@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.wtg.views.OffresController"
+            stylesheets="@style.css"
+            styleClass="root-pane">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="navbar">
+            <padding><Insets top="14" right="24" bottom="14" left="24"/></padding>
+            <Label text="WorkTogether — Offres commerciales" styleClass="nav-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Retour" onAction="#onRetour" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="scroll-pane">
+            <VBox spacing="20">
+                <padding><Insets top="32" right="40" bottom="40" left="40"/></padding>
+
+                <VBox spacing="6">
+                    <Label text="Offres commerciales" styleClass="page-title"/>
+                    <Label text="Cliquez sur une ligne pour modifier, ou créez une nouvelle offre." styleClass="page-subtitle"/>
+                </VBox>
+
+                <Label fx:id="feedbackLabel" visible="false" managed="false" wrapText="true" maxWidth="Infinity"/>
+
+                <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                    <!-- Table -->
+                    <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="CATALOGUE" styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="countLabel" styleClass="count-badge"/>
+                        </HBox>
+                        <TableView fx:id="offresTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="nomCol"     text="Nom"          prefWidth="180"/>
+                                <TableColumn fx:id="unitesCol"  text="Nb unités"    prefWidth="110"/>
+                                <TableColumn fx:id="mensuelCol" text="Prix / mois"  prefWidth="130"/>
+                                <TableColumn fx:id="annuelCol"  text="Prix / an"    prefWidth="130"/>
+                            </columns>
+                            <placeholder><Label text="Aucune offre enregistrée."/></placeholder>
+                        </TableView>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button fx:id="deleteBtn" text="Supprimer"
+                                    onAction="#onSupprimer" disable="true" styleClass="btn-delete"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="selectionHint" text="Aucune sélection" styleClass="selection-hint"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Formulaire -->
+                    <VBox spacing="14" styleClass="card" prefWidth="380" minWidth="340">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <Label fx:id="formTitle" text="NOUVELLE OFFRE" styleClass="section-title"/>
+
+                        <GridPane hgap="12" vgap="12">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="110" prefWidth="110"/>
+                                <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+                            </columnConstraints>
+
+                            <Label text="Nom" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="nomField" promptText="ex: Start-up"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Nb unités" styleClass="field-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="unitesField" promptText="ex: 10"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Prix / mois (€)" styleClass="field-label"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="mensuelField" promptText="ex: 299"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Prix / an (€)" styleClass="field-label"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="annuelField" promptText="ex: 2990"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Region VBox.vgrow="ALWAYS"/>
+
+                        <HBox spacing="10">
+                            <Button fx:id="cancelEditBtn" text="Annuler"
+                                    onAction="#onAnnuler" visible="false" managed="false"
+                                    styleClass="btn-logout"/>
+                            <Button fx:id="submitBtn" text="Créer l'offre"
+                                    onAction="#onSubmit" maxWidth="Infinity"
+                                    HBox.hgrow="ALWAYS" styleClass="btn-login"/>
+                        </HBox>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

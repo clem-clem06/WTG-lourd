@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.wtg.views.BaiesController"
+            stylesheets="@style.css"
+            styleClass="root-pane">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="navbar">
+            <padding><Insets top="14" right="24" bottom="14" left="24"/></padding>
+            <Label text="WorkTogether — Baies" styleClass="nav-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Retour" onAction="#onRetour" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="scroll-pane">
+            <VBox spacing="20">
+                <padding><Insets top="32" right="40" bottom="40" left="40"/></padding>
+
+                <VBox spacing="6">
+                    <Label text="Gestion des baies" styleClass="page-title"/>
+                    <Label text="Cliquez sur une ligne pour modifier, ou créez une nouvelle baie (max 42 unités)." styleClass="page-subtitle"/>
+                </VBox>
+
+                <!-- Cartes de stats -->
+                <HBox spacing="16">
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="BAIES TOTALES" styleClass="stat-label"/>
+                        <Label fx:id="statTotalBaies" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="UNITÉS TOTALES" styleClass="stat-label"/>
+                        <Label fx:id="statTotalUnites" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card stat-card-ok" HBox.hgrow="ALWAYS">
+                        <Label text="UNITÉS LIBRES" styleClass="stat-label"/>
+                        <Label fx:id="statLibres" text="—" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card stat-card-warn" HBox.hgrow="ALWAYS">
+                        <Label text="UNITÉS OCCUPÉES" styleClass="stat-label"/>
+                        <Label fx:id="statOccupees" text="—" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+
+                <Label fx:id="feedbackLabel" visible="false" managed="false" wrapText="true" maxWidth="Infinity"/>
+
+                <!-- 2 colonnes : table (gauche) + formulaire + PieChart (droite) -->
+                <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                    <!-- Table des baies -->
+                    <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="STOCK DES BAIES" styleClass="section-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="countLabel" styleClass="count-badge"/>
+                        </HBox>
+                        <TableView fx:id="baiesTable" VBox.vgrow="ALWAYS" prefHeight="300">
+                            <columns>
+                                <TableColumn fx:id="refCol"   text="Référence" prefWidth="200"/>
+                                <TableColumn fx:id="totalCol" text="Unités"    prefWidth="90"/>
+                                <TableColumn fx:id="occCol"   text="Occupées"  prefWidth="100"/>
+                                <TableColumn fx:id="tauxCol"  text="Taux"      prefWidth="90"/>
+                            </columns>
+                            <placeholder><Label text="Aucune baie enregistrée."/></placeholder>
+                        </TableView>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button fx:id="deleteBtn" text="Supprimer" onAction="#onSupprimer"
+                                    disable="true" styleClass="btn-delete"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="selectionHint" text="Aucune sélection" styleClass="selection-hint"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Formulaire + PieChart -->
+                    <VBox spacing="16" prefWidth="380" minWidth="340">
+
+                        <!-- Formulaire -->
+                        <VBox spacing="14" styleClass="card">
+                            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                            <Label fx:id="formTitle" text="NOUVELLE BAIE" styleClass="section-title"/>
+
+                            <GridPane hgap="12" vgap="12">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="100" prefWidth="100"/>
+                                    <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+                                </columnConstraints>
+
+                                <Label text="Référence" styleClass="field-label"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="refField" promptText="ex: Baie-A1"
+                                           styleClass="text-field"
+                                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label fx:id="nbLabel" text="Nb unités (max 42)" styleClass="field-label"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="nbField" promptText="1 – 42"
+                                           styleClass="text-field"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            </GridPane>
+
+                            <HBox spacing="10">
+                                <Button fx:id="cancelEditBtn" text="Annuler"
+                                        onAction="#onAnnuler" visible="false" managed="false"
+                                        styleClass="btn-logout"/>
+                                <Button fx:id="submitBtn" text="Créer la baie"
+                                        onAction="#onSubmit" maxWidth="Infinity"
+                                        HBox.hgrow="ALWAYS" styleClass="btn-login"/>
+                            </HBox>
+                        </VBox>
+
+                        <!-- PieChart occupation -->
+                        <VBox spacing="12" styleClass="card" VBox.vgrow="ALWAYS">
+                            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                            <Label text="OCCUPATION GLOBALE" styleClass="section-title"/>
+                            <PieChart fx:id="pieOccupation"
+                                      labelsVisible="true" legendVisible="true"
+                                      prefHeight="240" VBox.vgrow="ALWAYS"/>
+                        </VBox>
+
+                    </VBox>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

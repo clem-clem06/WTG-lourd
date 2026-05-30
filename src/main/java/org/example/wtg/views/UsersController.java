@@ -56,6 +56,7 @@ public class UsersController {
     // Libellés humains (ComboBox)
     private static final String LIB_ADMIN = "Administrateur";
     private static final String LIB_COMPTABLE = "Comptable";
+    private static final String LIB_TECHNICIEN = "Technicien";
 
     // Null = mode création. Non-null = mode édition (ce user est en cours de modif).
     private User userEnEdition = null;
@@ -66,6 +67,9 @@ public class UsersController {
 
     @FXML
     public void initialize() {
+        // Supprime la colonne vide blanche à droite
+        usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
+
         // --- Colonnes du tableau ---
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -75,7 +79,7 @@ public class UsersController {
         });
 
         // --- ComboBox rôle ---
-        roleCombo.getItems().addAll(LIB_ADMIN, LIB_COMPTABLE);
+        roleCombo.getItems().addAll(LIB_ADMIN, LIB_COMPTABLE, LIB_TECHNICIEN);
         roleCombo.getSelectionModel().selectFirst();
 
         // --- Quand on sélectionne/désélectionne une ligne, on bascule de mode ---
@@ -102,7 +106,7 @@ public class UsersController {
     public void onSubmit() {
         String email = lireChamp(emailField);
         String password = passwordField.getText(); // peut être vide en mode édition
-        String role = LIB_ADMIN.equals(roleCombo.getValue()) ? "ROLE_ADMIN" : "ROLE_COMPTABLE";
+        String role = roleDepuisLibelle(roleCombo.getValue());
 
         try {
             if (userEnEdition == null) {
@@ -227,7 +231,15 @@ public class UsersController {
         if (json == null) return "?";
         if (json.contains("ROLE_ADMIN")) return LIB_ADMIN;
         if (json.contains("ROLE_COMPTABLE")) return LIB_COMPTABLE;
+        if (json.contains("ROLE_TECHNICIEN")) return LIB_TECHNICIEN;
         return "?";
+    }
+
+    /** Transforme le libellé français de la ComboBox en rôle technique. */
+    private static String roleDepuisLibelle(String libelle) {
+        if (LIB_ADMIN.equals(libelle)) return "ROLE_ADMIN";
+        if (LIB_TECHNICIEN.equals(libelle)) return "ROLE_TECHNICIEN";
+        return "ROLE_COMPTABLE";
     }
 
     private static String lireChamp(TextField tf) {

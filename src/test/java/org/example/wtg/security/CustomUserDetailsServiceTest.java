@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 
 /**
  * Tests unitaires pour la logique d'accès JavaFX :
- * seuls ROLE_ADMIN et ROLE_COMPTABLE peuvent se connecter.
+ * seuls ROLE_ADMIN, ROLE_COMPTABLE et ROLE_TECHNICIEN peuvent se connecter.
  *
  * On utilise Mockito pour simuler UserRepository (pas d'accès BDD réel),
  * et un ListAppender Logback pour vérifier que l'exception JSON est bien loguée.
@@ -82,13 +82,25 @@ class CustomUserDetailsServiceTest {
                 .containsExactly("ROLE_COMPTABLE");
     }
 
+    @Test
+    void loadUser_avecRoleTechnicien_retourneUserDetails() {
+        User user = buildUser("technicien@wtg.fr", "[\"ROLE_TECHNICIEN\"]", "hash");
+        when(userRepository.findByEmail("technicien@wtg.fr")).thenReturn(Optional.of(user));
+
+        UserDetails details = service.loadUserByUsername("technicien@wtg.fr");
+
+        assertThat(details.getAuthorities())
+                .extracting("authority")
+                .containsExactly("ROLE_TECHNICIEN");
+    }
+
     // ─────────────────────────────────────────────────────────
     //  Cas KO : utilisateur sans droit d'accès (client classique)
     // ─────────────────────────────────────────────────────────
 
     @Test
     void loadUser_avecRoleClient_lanceDisabledException() {
-        User user = buildUser("client@htmail.fr", "[\"ROLE_CLIENT\"]", "hash");
+        User user = buildUser("client@hotmail.fr", "[\"ROLE_CLIENT\"]", "hash");
         when(userRepository.findByEmail("client@htmail.fr")).thenReturn(Optional.of(user));
 
         assertThatThrownBy(() -> service.loadUserByUsername("client@htmail.fr"))

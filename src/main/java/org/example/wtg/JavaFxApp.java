@@ -40,7 +40,8 @@ public class JavaFxApp extends Application {
 
         primaryStage.setTitle("WorkTogether — Connexion");
         primaryStage.setScene(new Scene(root, 450, 520));
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
+        primaryStage.setMaximized(true);
         primaryStage.show();
 
         // Rend le Stage accessible partout via SceneManager

@@ -38,10 +38,18 @@ public class SceneManager {
             // On réutilise Spring pour créer le controller du nouveau FXML
             loader.setControllerFactory(springContext::getBean);
 
-            Parent root = loader.load();
+            Parent newRoot = loader.load();
             stage.setTitle(title);
-            stage.setScene(new Scene(root, width, height));
-            stage.setResizable(resizable);
+
+            Scene currentScene = stage.getScene();
+            if (currentScene != null) {
+                // Remplace uniquement le contenu de la scène existante :
+                // la fenêtre ne change PAS de taille, pas de flash, pas de resize.
+                currentScene.setRoot(newRoot);
+            } else {
+                // Première création (login) — on crée la Scene une seule fois
+                stage.setScene(new Scene(newRoot, width, height));
+            }
             stage.show();
 
         } catch (Exception e) {

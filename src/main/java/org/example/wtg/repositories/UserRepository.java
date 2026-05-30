@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT u FROM User u WHERE u.roles LIKE '%ROLE_CLIENT%'")
     List<User> findAllClients();
 
-    // Trouver les membres du personnel (Admin + Comptable)
-    @Query("SELECT u FROM User u WHERE u.roles LIKE '%ROLE_ADMIN%' OR u.roles LIKE '%ROLE_COMPTABLE%'")
+    // Trouver les membres du personnel (Admin + Comptable + Technicien)
+    @Query("SELECT u FROM User u WHERE u.roles LIKE '%ROLE_ADMIN%' OR u.roles LIKE '%ROLE_COMPTABLE%' OR u.roles LIKE '%ROLE_TECHNICIEN%'")
     List<User> findAllPersonnel();
 }

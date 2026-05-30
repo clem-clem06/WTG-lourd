@@ -43,7 +43,7 @@
          CENTER : entête + feedback + 2 colonnes (liste | formulaire)
     ═══════════════════════════════════════════════════════════ -->
     <center>
-        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="scroll-pane">
             <VBox spacing="20">
                 <padding><Insets top="32" right="40" bottom="40" left="40"/></padding>
 

@@ -1,7 +1,6 @@
 package org.example.wtg.views;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import org.example.wtg.SceneManager;
@@ -33,12 +32,20 @@ public class DashboardController {
         // Vérifie les rôles
         boolean isAdmin = auth.getAuthorities().stream()
                 .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+        boolean isTechnicien = auth.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("ROLE_TECHNICIEN"));
 
         if (isAdmin) {
             roleBadge.setText("Administrateur");
             roleBadge.getStyleClass().add("badge-admin");
             adminSection.setVisible(true);
             adminSection.setManaged(true);
+        } else if (isTechnicien) {
+            roleBadge.setText("Technicien");
+            roleBadge.getStyleClass().add("badge-technicien");
+            // La section admin reste réservée aux administrateurs
+            adminSection.setVisible(false);
+            adminSection.setManaged(false);
         } else {
             roleBadge.setText("Comptable");
             roleBadge.getStyleClass().add("badge-comptable");
@@ -72,16 +79,19 @@ public class DashboardController {
                 "WorkTogether — Utilisateurs", 1000, 700, true);
     }
 
-    @FXML public void onBaies()        { enChantier("Gestion des baies"); }
-    @FXML public void onOffres()       { enChantier("Gestion des offres commerciales"); }
-    @FXML public void onClients()      { enChantier("Liste des clients"); }
-    @FXML public void onReservations() { enChantier("Liste des réservations"); }
+    @FXML public void onBaies() {
+        SceneManager.switchTo("/fxml/baies.fxml", "WorkTogether — Baies", 1100, 750, true);
+    }
 
-    private void enChantier(String titre) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titre);
-        alert.setHeaderText(titre);
-        alert.setContentText("Cette vue sera implémentée à la prochaine étape.");
-        alert.showAndWait();
+    @FXML public void onOffres() {
+        SceneManager.switchTo("/fxml/offres.fxml", "WorkTogether — Offres commerciales", 900, 650, true);
+    }
+
+    @FXML public void onClients() {
+        SceneManager.switchTo("/fxml/clients.fxml", "WorkTogether — Clients", 1100, 750, true);
+    }
+
+    @FXML public void onReservations() {
+        SceneManager.switchTo("/fxml/reservations.fxml", "WorkTogether — Réservations", 1200, 750, true);
     }
 }
