@@ -26,4 +26,8 @@ public interface UniteRepository extends JpaRepository<Unite, Integer> {
     // Unités par état (OK, incident, maintenance)
     // → SELECT * FROM unite WHERE etat = ?
     List<Unite> findByEtat(String etat);
+
+    // Unités d'un client dans un état donné (ex : "en attente de paiement")
+    // → SELECT * FROM unite WHERE locataire_id = ? AND etat = ?
+    List<Unite> findByLocataireAndEtat(User locataire, String etat);
 }
