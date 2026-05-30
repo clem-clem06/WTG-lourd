@@ -140,6 +140,7 @@ public class ReservationsService {
         // Met aussi à jour tous les Payment liés
         for (Payment p : o.getPayments()) {
             p.setStatus("cancel");
+            p.setGatewayResponse("Virement annulé");
             paymentRepository.save(p);
         }
 

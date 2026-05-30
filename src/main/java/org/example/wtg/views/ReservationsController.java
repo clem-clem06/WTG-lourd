@@ -2,6 +2,8 @@ package org.example.wtg.views;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
@@ -31,11 +33,14 @@ public class ReservationsController {
 
     @FXML private Label statTotal, statPayees, statAttente, statRevenu;
     @FXML private Label feedbackLabel, selectionHint;
+    @FXML private javafx.scene.control.TextField rechercheField;
 
     @FXML private TableView<Order> ordersTable;
     @FXML private TableColumn<Order, String> clientCol, totalCol, statusCol, dateCol;
 
     @FXML private Button validerBtn, annulerBtn;
+
+    private final ObservableList<Order> toutesCommandes = FXCollections.observableArrayList();
 
     @FXML private BarChart<String, Number> barStatut;
 
@@ -62,6 +67,19 @@ public class ReservationsController {
         });
 
         ordersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
+
+        // ── Recherche ──
+        FilteredList<Order> filtered = new FilteredList<>(toutesCommandes, o -> true);
+        ordersTable.setItems(filtered);
+        rechercheField.textProperty().addListener((obs, old, val) -> {
+            String t = val == null ? "" : val.toLowerCase().trim();
+            filtered.setPredicate(o -> {
+                if (t.isEmpty()) return true;
+                String email  = o.getUser() != null ? o.getUser().getEmail().toLowerCase() : "";
+                String statut = o.getStatus() != null ? traduireStatut(o.getStatus()).toLowerCase() : "";
+                return email.contains(t) || statut.contains(t);
+            });
+        });
 
         // ── Listener de sélection ──
         ordersTable.getSelectionModel().selectedItemProperty().addListener((obs, old, sel) -> {
@@ -124,7 +142,7 @@ public class ReservationsController {
         // revenu est en centimes → diviser par 100 pour afficher en euros
         statRevenu.setText(String.format(Locale.FRANCE, "%.2f €", revenu / 100.0));
 
-        ordersTable.setItems(FXCollections.observableArrayList(service.listerCommandes()));
+        toutesCommandes.setAll(service.listerCommandes());
         ordersTable.refresh();
 
         barStatut.getData().clear();

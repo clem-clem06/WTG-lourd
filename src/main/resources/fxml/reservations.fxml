@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -65,6 +66,9 @@
                     <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
                         <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
                         <Label text="LISTE DES COMMANDES" styleClass="section-title"/>
+                        <TextField fx:id="rechercheField"
+                                   promptText="🔍  Rechercher par client, statut…"
+                                   styleClass="text-field"/>
                         <TableView fx:id="ordersTable" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="clientCol"  text="Client"   prefWidth="240"/>
