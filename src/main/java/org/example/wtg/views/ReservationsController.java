@@ -162,11 +162,14 @@ public class ReservationsController {
     }
 
     private static String traduireStatut(String s) {
+        if (s == null) {
+            return "—";
+        }
         return switch (s.toLowerCase()) {
-            case "paid"    -> "Payée";
-            case "pending" -> "En attente";
-            case "cancel"  -> "Annulée";
-            default        -> s;
+            case "paid", "payée", "payee", "completed" -> "Payée";
+            case "pending", "en attente"               -> "En attente";
+            case "cancel", "cancelled", "annulé", "annulée" -> "Annulée";
+            default -> s;
         };
     }
 }

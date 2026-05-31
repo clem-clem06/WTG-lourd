@@ -47,28 +47,50 @@ public class ReservationsService {
     }
 
     public long commandesPayees() {
-        return orderRepository.findByStatus("paid").size();
+        return orderRepository.findAll().stream()
+                .filter(o -> "paid".equals(normaliserStatut(o.getStatus()))).count();
     }
 
     public long commandesEnAttente() {
-        return orderRepository.findByStatus("pending").size();
+        return orderRepository.findAll().stream()
+                .filter(o -> "pending".equals(normaliserStatut(o.getStatus()))).count();
     }
 
     /** Revenu total : somme des commandes payées */
     public double revenuTotal() {
         return orderRepository.findAll().stream()
-                .filter(o -> "paid".equals(o.getStatus()))
+                .filter(o -> "paid".equals(normaliserStatut(o.getStatus())))
                 .mapToDouble(o -> o.getTotal() == null ? 0 : o.getTotal())
                 .sum();
     }
 
-    /** Nombre de commandes par statut pour le BarChart */
+    /** Nombre de commandes par statut (normalisé) pour le BarChart */
     public Map<String, Long> commandesParStatut() {
         return orderRepository.findAll().stream()
                 .collect(Collectors.groupingBy(
-                        o -> o.getStatus() == null ? "inconnu" : o.getStatus(),
+                        o -> normaliserStatut(o.getStatus()),
                         Collectors.counting()
                 ));
+    }
+
+    /**
+     * Normalise le vocabulaire des statuts (bilingue Java/Symfony) :
+     *  - "paid" / "payée" / "completed"  → "paid"
+     *  - "pending"                        → "pending"
+     *  - "cancel" / "annulé" / "annulée"  → "cancel"
+     * Évite que la même commande soit comptée/affichée différemment selon
+     * qu'elle a été payée côté Symfony (français) ou validée côté Java (anglais).
+     */
+    private static String normaliserStatut(String status) {
+        if (status == null) {
+            return "inconnu";
+        }
+        return switch (status.toLowerCase()) {
+            case "paid", "payée", "payee", "completed" -> "paid";
+            case "pending", "en attente" -> "pending";
+            case "cancel", "cancelled", "annulé", "annulée" -> "cancel";
+            default -> status.toLowerCase();
+        };
     }
 
     @Transactional
