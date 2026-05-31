@@ -77,12 +77,13 @@
 
                     <VBox spacing="12" styleClass="card" prefWidth="380">
                         <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
-                        <Label text="RÉPARTITION CLIENTS" styleClass="section-title"/>
+                        <Label text="UNITÉS LOUÉES PAR CLIENT" styleClass="section-title"/>
                         <PieChart fx:id="pieClients"
-                                  labelsVisible="true"
+                                  labelsVisible="false"
                                   legendVisible="true"
                                   VBox.vgrow="ALWAYS"
-                                  prefHeight="320"/>
+                                  minHeight="320"
+                                  prefHeight="360"/>
                     </VBox>
 
                 </HBox>
