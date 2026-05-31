@@ -72,13 +72,18 @@ public class ClientsController {
             filtered.setPredicate(u -> t.isEmpty() || u.getEmail().toLowerCase().contains(t));
         });
 
-        // ── PieChart ──
-        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
-                new PieChart.Data("Actifs (" + actifs + ")", Math.max(actifs, 0)),
-                new PieChart.Data("Inactifs (" + inactifs + ")", Math.max(inactifs, 0))
-        );
+        // ── PieChart : répartition des unités louées par client ──
+        // Chaque client occupant au moins une unité = une part proportionnelle.
+        // Plus parlant pour un datacenter que « actif / inactif ».
+        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList();
+        clients.stream()
+                .filter(u -> !u.getUnites().isEmpty())
+                .sorted((a, b) -> Integer.compare(b.getUnites().size(), a.getUnites().size()))
+                .forEach(u -> pieData.add(new PieChart.Data(
+                        u.getEmail() + " (" + u.getUnites().size() + ")",
+                        u.getUnites().size())));
         pieClients.setData(pieData);
-        pieClients.setTitle("Clients");
+        pieClients.setTitle(pieData.isEmpty() ? "Aucune unité louée" : "Unités louées par client");
     }
 
     @FXML
